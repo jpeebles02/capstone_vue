@@ -7,6 +7,11 @@ import Logout from "./views/Logout.vue";
 import UserHomePage from "./views/UserHomePage.vue";
 import ExercisesIndex from "./views/ExercisesIndex.vue";
 import ExercisesShow from "./views/ExercisesShow.vue";
+import RoutinesNew from "./views/RoutinesNew.vue";
+import RoutinesShow from "./views/RoutinesShow.vue";
+import ExerciseRoutinesNew from "./views/ExerciseRoutinesNew.vue";
+import Routines from "./views/Routines.vue";
+// import UserInfo from "./views/UserInfo.vue";
 
 Vue.use(Router);
 
@@ -20,6 +25,11 @@ export default new Router({
     { path: "/logout", name: "logout", component: Logout },
     { path: "/userhomepage", name: "user-home-page", component: UserHomePage },
     { path: "/exercises", name: "exercises-index", component: ExercisesIndex },
-    { path: "/exercise/:id", name: "exercises-show", component: ExercisesShow }
+    { path: "/exercises/:id", name: "exercises-show", component: ExercisesShow },
+    { path: "/exercise_routines/new", name: "exercise-routines-new", component: ExerciseRoutinesNew },
+    { path: "/routines/new", name: "routines-new", component: RoutinesNew },
+    { path: "/routines/:id", name: "routines-show", component: RoutinesShow },
+    { path: "/routines", name: "routines", component: Routines }
+    // { path: "/userinfo", name: "userinfo", component: UserInfo }
   ]
 });

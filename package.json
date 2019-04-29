@@ -8,11 +8,14 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
+    "bootstrap-vue": "^2.0.0-rc.19",
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
     "vue-instant": "^1.0.4",
     "vue-multiselect": "^2.1.4",
     "vue-router": "^3.0.3",
+    "vue-star": "0.0.4",
     "vue2-filters": "^0.6.0"
   },
   "devDependencies": {

@@ -1,5 +1,179 @@
 <template>
   <div id="app">
+    <div class="topbar hidden-xs hidden-sm">
+      <div class="container">
+        <!-- Social links -->
+        <ul class="topbar-nav topbar-nav_left">
+          <li>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-vk"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-stumbleupon"></i></a>
+          </li>
+        </ul>
+        <ul class="topbar-nav topbar-nav_right">
+          <li>
+            <!-- Search form -->
+            <form class="form-inline topbar__search" role="form">
+              <label class="sr-only" for="nav-search">Search</label>
+              <input type="search" class="form-control" id="nav-search" placeholder="Search here..." />
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </li>
+          <!-- Account links -->
+          <li><a href="sign-in.html">Sign In</a></li>
+          <li><a href="sing-up.html">Sign Up</a></li>
+          <li><a href="shopping-cart.html">My Cart (0)</a></li>
+        </ul>
+      </div>
+      <!-- / .container -->
+    </div>
+    <!-- / .topbar -->
+    <div class="navbar__hr hidden-xs hidden-sm"></div>
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- Toggle button -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- Brand name -->
+          <a class="navbar-brand" href="index.html">Beatrix</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <!-- Navbar links -->
+          <ul class="nav navbar-nav navbar-right">
+            <!-- Home -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Home <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="active"><a href="index.html">Home: Default</a></li>
+                <li><a href="index_carousel.html">Home: Carousel</a></li>
+              </ul>
+            </li>
+
+            <!-- Profile -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Profile <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-submenu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign In</a>
+                  <!-- Dropdown submenu -->
+                  <ul class="dropdown-menu">
+                    <li><a href="sign-in.html">Sign In: Default</a></li>
+                    <li><a href="sign-in_option-1.html">Sign In: Option 1</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-submenu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign Up</a>
+                  <!-- Dropdown submenu -->
+                  <ul class="dropdown-menu">
+                    <li><a href="sign-up.html">Sign Up: Default</a></li>
+                    <li><a href="sign-up_option-1.html">Sign Up: Option 1</a></li>
+                  </ul>
+                </li>
+                <li><a href="profile.html">User Profile</a></li>
+              </ul>
+            </li>
+
+            <!-- Portfolio -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Portfolio <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="portfolio-item.html">Portfolio Item</a></li>
+              </ul>
+            </li>
+
+            <!-- Blog -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Blog <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="blog-post.html">Blog Post</a></li>
+              </ul>
+            </li>
+
+            <!-- Shop -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Shop <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="shop-item.html">Shop Item</a></li>
+                <li><a href="shopping-cart.html">Shopping Cart</a></li>
+              </ul>
+            </li>
+
+            <!-- More pages -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                More Pages <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="coming-soon.html">Coming Soon</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+                <li class="dropdown-submenu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help Center</a>
+                  <!-- Dropdown submenu -->
+                  <ul class="dropdown-menu">
+                    <li><a href="help-center.html">Help Center</a></li>
+                    <li><a href="help-item.html">Help Item</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-submenu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pricing Options</a>
+                  <!-- Dropdown submenu -->
+                  <ul class="dropdown-menu">
+                    <li><a href="pricing_boxes.html">Pricing Options: Boxes</a></li>
+                    <li><a href="pricing_table.html">Pricing Options: Table</a></li>
+                  </ul>
+                </li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="search-results.html">Search Results</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="error-page.html">404 Error</a></li>
+              </ul>
+            </li>
+
+            <!-- UI Elements -->
+            <li><a href="ui-elements.html">UI Elements</a></li>
+          </ul>
+          <!-- Search form (for collapsed menu only) -->
+          <form class="navbar-form navbar-left visible-xs visible-sm" role="search">
+            <div class="form-group">
+              <label class="sr-only" for="nav-search-xs">Search</label>
+              <input type="search" class="form-control" id="nav-search-xs" placeholder="Search here..." />
+            </div>
+          </form>
+        </div>
+        <!-- / .navbar-collapse -->
+      </div>
+      <!-- / .container -->
+    </div>
+    <!-- / .navbar -->
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/userhomepage" v-if="jwt">User Home Page</router-link>
@@ -11,11 +185,50 @@
       <router-link to="/logout" v-if="jwt">Logout</router-link>
     </div>
     <router-view v-on:changeJwt="setJwt()" />
+
+    <footer>
+      <!-- Footer Top -->
+
+      <!-- Footer Bottom -->
+      <div class="footer_bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <div class="footer__copyright">
+                Copyright 2015 <a href="http://simpleqode.com/">Simpleqode.com</a>. All Rights Reserved.
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <ul class="footer__social">
+                <li class="twitter">
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li class="facebook">
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li class="linkedin">
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li class="google-plus">
+                  <a href="#"><i class="fa fa-google-plus"></i></a>
+                </li>
+                <li class="pinterest">
+                  <a href="#"><i class="fa fa-pinterest"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- / .row -->
+        </div>
+        <!-- / .container -->
+      </div>
+      <!-- / .footer_bottom -->
+    </footer>
   </div>
 </template>
 
 <style>
-#app {
+/*#app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -33,10 +246,12 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
-}
+}*/
 </style>
 
 <script>
+import Vue from "vue";
+import BootstrapVue from "bootstrap-vue";
 export default {
   data: function() {
     return {
