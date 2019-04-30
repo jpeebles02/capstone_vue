@@ -1,5 +1,6 @@
 <template>
   <div class="userhomepage">
+    <!-- / .container -->
     <div class="profile__header">
       <div class="container">
         <div class="row">
@@ -260,7 +261,7 @@ export default {
   },
   mounted: function() {
     axios
-      .get("/api/users/" + this.$route.params.id)
+      .get("/api/users/current_user")
       .then(response => {
         this.user = response.data;
         console.log(this.user);

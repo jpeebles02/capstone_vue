@@ -25,7 +25,7 @@
       <div class="row">
         <div class="col-sm-8">
           <div class="portfolio-item__img">
-            <img v-bind:src="exercise.primary_image" v-bind:alt="exercise.name" />
+            <img v-bind:src="exercise.primary_image" v-bind:alt="exercise.name" class="img-responsive" />
           </div>
         </div>
         <div class="col-sm-4">

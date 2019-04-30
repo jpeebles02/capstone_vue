@@ -30,9 +30,12 @@
             </form>
           </li>
           <!-- Account links -->
-          <li><a href="sign-in.html">Sign In</a></li>
-          <li><a href="sing-up.html">Sign Up</a></li>
-          <li><a href="shopping-cart.html">My Cart (0)</a></li>
+          <li><a href="/login" v-if="!jwt"> Login</a></li>
+          |
+          <li><a href="/signup" v-if="!jwt">Sign Up</a></li>
+          |
+          <li><a href="/logout" v-if="jwt">Logout</a></li>
+          <li><a href="/userhomepage" v-if="jwt">User Home Page</a></li>
         </ul>
       </div>
       <!-- / .container -->
@@ -50,22 +53,11 @@
             <span class="icon-bar"></span>
           </button>
           <!-- Brand name -->
-          <a class="navbar-brand" href="index.html">Beatrix</a>
+          <a class="navbar-brand" href="/">healF</a>
         </div>
         <div class="collapse navbar-collapse">
           <!-- Navbar links -->
           <ul class="nav navbar-nav navbar-right">
-            <!-- Home -->
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Home <span class="fa fa-angle-down"></span>
-              </a>
-              <ul class="dropdown-menu" role="menu">
-                <li class="active"><a href="index.html">Home: Default</a></li>
-                <li><a href="index_carousel.html">Home: Carousel</a></li>
-              </ul>
-            </li>
-
             <!-- Profile -->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -188,6 +180,121 @@
 
     <footer>
       <!-- Footer Top -->
+      <div class="footer_top hidden-xs">
+        <div class="container">
+          <div class="row">
+            <!-- Contact Us -->
+            <div class="col-xs-12 col-sm-3">
+              <div class="footer__item">
+                <div class="footer__title">Contact Us</div>
+                <div class="footer__content">
+                  <p>
+                    Do not hesitate to contact us if you have any questions or feature requests:
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet,<br />
+                    Consectetur adipiscing elit
+                  </p>
+                  <p>
+                    Phone: +0 000 000 00 00<br />
+                    Fax: +0 000 000 00 00
+                  </p>
+                  <p>Email: <a href="#">support@example.com</a></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Tweets -->
+            <div class="col-xs-12 col-sm-3">
+              <div class="footer__item">
+                <div class="footer__title">Recent Tweets</div>
+                <div class="footer__content">
+                  <div class="footer__tweet">
+                    <div class="footer-tweet__icon">
+                      <i class="fa fa-twitter"></i>
+                    </div>
+                    <div class="footer-tweet__content">
+                      <p>
+                        <a href="#">@wrapbootstrap</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+                        nisi lorem, elementum sed feugiat.
+                      </p>
+                      <a href="#">1 hour ago</a>
+                    </div>
+                  </div>
+                  <div class="footer__tweet">
+                    <div class="footer-tweet__icon">
+                      <i class="fa fa-twitter"></i>
+                    </div>
+                    <div class="footer-tweet__content">
+                      <p>
+                        <a href="#">@wrapbootstrap</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+                        nisi lorem, elementum sed feugiat.
+                      </p>
+                      <a href="#">1 day ago</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Posts -->
+            <div class="col-xs-12 col-sm-3">
+              <div class="footer__item">
+                <div class="footer__title">Recent Posts</div>
+                <div class="footer__content">
+                  <div class="footer__post">
+                    <div class="footer-post__img">
+                      <img src="img/general_1.jpg" alt="..." />
+                    </div>
+                    <div class="footer-post__content">
+                      <p><a href="#">Lorem ipsum dolor sit amet</a></p>
+                      <time datetime="2015-01-01">2015/01/01</time>
+                    </div>
+                  </div>
+                  <div class="footer__post">
+                    <div class="footer-post__img">
+                      <img src="img/general_2.jpg" alt="..." />
+                    </div>
+                    <div class="footer-post__content">
+                      <p><a href="#">Lorem ipsum dolor sit amet</a></p>
+                      <time datetime="2015-01-01">2015/01/01</time>
+                    </div>
+                  </div>
+                  <div class="footer__post">
+                    <div class="footer-post__img">
+                      <img src="img/general_3.jpg" alt="..." />
+                    </div>
+                    <div class="footer-post__content">
+                      <p><a href="#">Lorem ipsum dolor sit amet</a></p>
+                      <time datetime="2015-01-01">2015/01/01</time>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-xs-12 col-sm-3">
+              <div class="footer__item">
+                <div class="footer__title">Quick Links</div>
+                <div class="footer__content">
+                  <ul class="footer__links">
+                    <li><a href="#">Donec commodo turpis eget orci</a></li>
+                    <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+                    <li><a href="#">Aenean rhoncus vel nisi sed</a></li>
+                    <li><a href="#">Aenean accumsan volutpat libero</a></li>
+                    <li><a href="#">Vestibulum lacinia erat massa</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- / .row -->
+        </div>
+        <!-- / .container -->
+      </div>
+      <!-- / .footer_top -->
+      <div class="footer__hr hidden-xs"></div>
 
       <!-- Footer Bottom -->
       <div class="footer_bottom">
