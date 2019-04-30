@@ -7,20 +7,18 @@
           <div class="col-sm-4 col-md-3 col-lg-2">
             <!-- User avatar -->
             <div class="profile__avatar">
-              <img src="img/photo_4.jpg" alt="..." class="img-responsive center-block" />
+              <!-- <img src="img/photo_4.jpg" alt="..." class="img-responsive center-block" /> -->
+              <img v-bind:src="user.image_url" v-bind:alt="user.name" class="img-responsive center-block" />
             </div>
           </div>
           <div class="col-sm-8 col-md-9 col-lg-10">
             <div class="profile__summary">
               <!-- User name -->
-              <h3 class="profile__name">john</h3>
+              <h3 class="profile__name">{{ user.name }}</h3>
               <!-- User status -->
               <p class="text-muted">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla faucibus maximus lectus ut auctor.
+                something
               </p>
-              <!-- Contact -->
-              <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-envelope"></i> Contact</a>
-              <a href="#" class="btn btn-default btn-sm"><i class="fa fa-sign-out"></i> Sign Out</a>
             </div>
             <!-- / .profile__summary -->
           </div>
@@ -53,7 +51,7 @@
               <a href="#personal-info" aria-controls="personal-info" role="tab" data-toggle="tab">Personal Info</a>
             </li>
             <li role="presentation">
-              <a href="#user-portfolio" aria-controls="user-portfolio" role="tab" data-toggle="tab">Portfolio</a>
+              <router-link to="/routines">My Routines</router-link>
             </li>
           </ul>
           <!-- Tab content -->
@@ -64,44 +62,36 @@
                 <table class="table">
                   <tbody>
                     <tr>
-                      <th scope="row">Location</th>
-                      <td>Los Angeles, CA</td>
+                      <th scope="row">Email</th>
+                      <td>{{ user.email }}</td>
                     </tr>
                     <tr>
-                      <th scope="row">Occupation</th>
-                      <td>Designer</td>
+                      <th scope="row">Phone Number</th>
+                      <td>{{ user.phone_number }}r</td>
                     </tr>
                     <tr>
-                      <th scope="row">Skills</th>
-                      <td>HTML, CSS, JS, Bootstrap</td>
+                      <th scope="row">Birth Date</th>
+                      <td>{{ user.birth_date }}</td>
                     </tr>
                     <tr>
-                      <th scope="row">Experience</th>
-                      <td>5 years</td>
+                      <th scope="row">Height (in)</th>
+                      <td>{{ user.height_in_inches }}</td>
                     </tr>
                     <tr>
-                      <th scope="row">Education</th>
-                      <td>California State University, Los Angeles</td>
+                      <th scope="row">Weight (lbs)</th>
+                      <td>{{ user.weight_in_pounds }}</td>
                     </tr>
                     <tr>
-                      <th scope="row">Username</th>
-                      <td>@SuperJohn</td>
+                      <th scope="row">Waist Size</th>
+                      <td>{{ user.waist_size }}</td>
                     </tr>
                     <tr>
-                      <th scope="row">Type</th>
-                      <td>Individual</td>
+                      <th scope="row">Target Weight</th>
+                      <td>{{ user.target_weight }}</td>
                     </tr>
                     <tr>
-                      <th scope="row">Member Since</th>
-                      <td>May 2012</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Page URL</th>
-                      <td>http://www.yoursite.com/profile</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Verified User</th>
-                      <td>Yes</td>
+                      <th scope="row">Target Waist Size</th>
+                      <td>{{ user.target_waist_size }}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -228,31 +218,51 @@
       <!-- / .row -->
     </div>
     <!-- / .container -->
-    <h1>My Info</h1>
-    <div v-for="user in users">
-      <h2>{{ user.name }}</h2>
-      <p>email: {{ user.email }}</p>
-      <p>phone_number: {{ user.phone_number }}</p>
-      <p>Birth Date: {{ user.birth_date }}</p>
-      <p>Height: {{ user.height_in_inches }}</p>
-      <p>Weight: {{ user.weight_in_pounds }}</p>
-      <p>Waist Size: {{ user.waist_size }}</p>
-      <p>Target Weight: {{ user.target_weight }}</p>
-      <p>Target Waist Size: {{ user.target_waist_size }}</p>
-      <p>Target Weight: {{ user.weight_in_pounds }}</p>
-    </div>
+
     <router-view v-on:changeJwt="setJwt()" />
+    <h2>Local Gyms</h2>
+    <div id="map"></div>
   </div>
 </template>
 
+<style>
+#map {
+  height: 300px;
+  text-align: initial;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+</style>
+
 <script>
 var axios = require("axios");
-
+/* global mapboxgl */
+/* global mapboxSdk */
 export default {
   data: function() {
     return {
       user: [],
-      jwt: null
+      jwt: null,
+      places: [
+        {
+          lat: 41.8937,
+          long: -87.6374,
+          description: "UFC Gym in River North"
+        },
+        {
+          lat: 41.8713,
+          long: -87.6272,
+          description: "Xsport Fitness on south State street"
+        },
+        {
+          lat: 41.8884,
+          long: -87.6354,
+          description:
+            "Members-only gym in the Merchandise Mart offering exercise equipment, classes & personal training"
+        }
+      ]
     };
   },
   created: function() {
@@ -272,6 +282,59 @@ export default {
           this.$router.push("/login");
         }
       });
+    mapboxgl.accessToken =
+      "pk.eyJ1IjoianBlZWJsZXMyIiwiYSI6ImNqdWRhc2h5cTB0NzI0M25xZWZ6cThtcTYifQ.rFfoxhSgmZHr66vMqgnxfQ";
+
+    var map = new mapboxgl.Map({
+      container: "map", // container id
+      style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
+      center: [-87.6348, 41.8921], // starting position [lng, lat]
+      zoom: 12,
+      pitch: 45,
+      bearing: -17.6
+    });
+
+    this.places.forEach(function(place) {
+      var popup = new mapboxgl.Popup({ offset: 25 }).setText(place.description);
+      var marker = new mapboxgl.Marker()
+        .setLngLat([place.long, place.lat])
+        .setPopup(popup) // sets a popup on this marker
+        .addTo(map);
+    });
+
+    map.on("load", function() {
+      // Insert the layer beneath any symbol layer.
+      var layers = map.getStyle().layers;
+
+      var labelLayerId;
+      for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === "symbol" && layers[i].layout["text-field"]) {
+          labelLayerId = layers[i].id;
+          break;
+        }
+      }
+
+      map.addLayer(
+        {
+          id: "3d-buildings",
+          source: "composite",
+          "source-layer": "building",
+          filter: ["==", "extrude", "true"],
+          type: "fill-extrusion",
+          minzoom: 15,
+          paint: {
+            "fill-extrusion-color": "#aaa",
+
+            // use an 'interpolate' expression to add a smooth transition effect to the
+            // buildings as the user zooms in
+            "fill-extrusion-height": ["interpolate", ["linear"], ["zoom"], 15, 0, 15.05, ["get", "height"]],
+            "fill-extrusion-base": ["interpolate", ["linear"], ["zoom"], 15, 0, 15.05, ["get", "min_height"]],
+            "fill-extrusion-opacity": 0.6
+          }
+        },
+        labelLayerId
+      );
+    });
   },
   methods: {
     setJwt: function() {

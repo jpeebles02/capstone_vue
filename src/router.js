@@ -11,7 +11,7 @@ import RoutinesNew from "./views/RoutinesNew.vue";
 import RoutinesShow from "./views/RoutinesShow.vue";
 import ExerciseRoutinesNew from "./views/ExerciseRoutinesNew.vue";
 import Routines from "./views/Routines.vue";
-// import UserInfo from "./views/UserInfo.vue";
+import MapPage from "./views/MapPage.vue";
 
 Vue.use(Router);
 
@@ -29,7 +29,7 @@ export default new Router({
     { path: "/exercise_routines/new", name: "exercise-routines-new", component: ExerciseRoutinesNew },
     { path: "/routines/new", name: "routines-new", component: RoutinesNew },
     { path: "/routines/:id", name: "routines-show", component: RoutinesShow },
-    { path: "/routines", name: "routines", component: Routines }
-    // { path: "/userinfo", name: "userinfo", component: UserInfo }
+    { path: "/routines", name: "routines", component: Routines },
+    { path: "/mappage", name: "mappage", component: MapPage }
   ]
 });

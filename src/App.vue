@@ -60,98 +60,34 @@
           <ul class="nav navbar-nav navbar-right">
             <!-- Profile -->
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" v-if="jwt">
                 Profile <span class="fa fa-angle-down"></span>
               </a>
               <ul class="dropdown-menu" role="menu">
-                <li class="dropdown-submenu">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign In</a>
-                  <!-- Dropdown submenu -->
-                  <ul class="dropdown-menu">
-                    <li><a href="sign-in.html">Sign In: Default</a></li>
-                    <li><a href="sign-in_option-1.html">Sign In: Option 1</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown-submenu">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign Up</a>
-                  <!-- Dropdown submenu -->
-                  <ul class="dropdown-menu">
-                    <li><a href="sign-up.html">Sign Up: Default</a></li>
-                    <li><a href="sign-up_option-1.html">Sign Up: Option 1</a></li>
-                  </ul>
-                </li>
-                <li><a href="profile.html">User Profile</a></li>
+                <li><a href="/userhomepage" v-if="jwt">User Profile</a></li>
               </ul>
             </li>
 
             <!-- Portfolio -->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Portfolio <span class="fa fa-angle-down"></span>
+                Exercises <span class="fa fa-angle-down"></span>
               </a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="portfolio-item.html">Portfolio Item</a></li>
-              </ul>
-            </li>
-
-            <!-- Blog -->
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Blog <span class="fa fa-angle-down"></span>
-              </a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="blog-post.html">Blog Post</a></li>
+                <li><a href="/exercises">All Exercises</a></li>
               </ul>
             </li>
 
             <!-- Shop -->
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Shop <span class="fa fa-angle-down"></span>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" v-if="jwt">
+                Routines <span class="fa fa-angle-down"></span>
               </a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="shop-item.html">Shop Item</a></li>
-                <li><a href="shopping-cart.html">Shopping Cart</a></li>
+                <li><a href="/routines" v-if="jwt">Routines</a></li>
+                <li><a href="routines/new" v-if="jwt">Create a Routine</a></li>
               </ul>
             </li>
-
-            <!-- More pages -->
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                More Pages <span class="fa fa-angle-down"></span>
-              </a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="coming-soon.html">Coming Soon</a></li>
-                <li><a href="contact-us.html">Contact Us</a></li>
-                <li class="dropdown-submenu">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help Center</a>
-                  <!-- Dropdown submenu -->
-                  <ul class="dropdown-menu">
-                    <li><a href="help-center.html">Help Center</a></li>
-                    <li><a href="help-item.html">Help Item</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown-submenu">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pricing Options</a>
-                  <!-- Dropdown submenu -->
-                  <ul class="dropdown-menu">
-                    <li><a href="pricing_boxes.html">Pricing Options: Boxes</a></li>
-                    <li><a href="pricing_table.html">Pricing Options: Table</a></li>
-                  </ul>
-                </li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="search-results.html">Search Results</a></li>
-                <li><a href="timeline.html">Timeline</a></li>
-                <li><a href="error-page.html">404 Error</a></li>
-              </ul>
-            </li>
-
-            <!-- UI Elements -->
-            <li><a href="ui-elements.html">UI Elements</a></li>
           </ul>
           <!-- Search form (for collapsed menu only) -->
           <form class="navbar-form navbar-left visible-xs visible-sm" role="search">
@@ -166,16 +102,7 @@
       <!-- / .container -->
     </div>
     <!-- / .navbar -->
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/userhomepage" v-if="jwt">User Home Page</router-link>
-      |
-      <router-link to="/login" v-if="!jwt">Login</router-link>
-      |
-      <router-link to="/signup" v-if="!jwt">Signup</router-link>
-      |
-      <router-link to="/logout" v-if="jwt">Logout</router-link>
-    </div>
+
     <router-view v-on:changeJwt="setJwt()" />
 
     <footer>
@@ -357,6 +284,8 @@
 </style>
 
 <script>
+/* global setupTheme */
+
 import Vue from "vue";
 import BootstrapVue from "bootstrap-vue";
 export default {
@@ -368,6 +297,9 @@ export default {
   created: function() {
     this.jwt = localStorage.jwt;
     console.log("My jwt is", this.jwt);
+  },
+  mounted: function() {
+    setupTheme();
   },
   methods: {
     setJwt: function() {

@@ -1,12 +1,5 @@
 <template>
   <div class="mappage">
-    <div id="nav">
-      <router-link to="/exercises">All Exercises</router-link> |
-      <router-link to="/routines/new">New Routine</router-link> |
-
-      <router-link to="/userinfo" v-if="jwt">User Info</router-link>
-    </div>
-    <router-view v-on:changeJwt="setJwt()" />
     <h2>This is a map of local gyms</h2>
     <div id="map"></div>
   </div>
@@ -29,7 +22,6 @@ body {
 export default {
   data: function() {
     return {
-      jwt: null,
       places: [
         {
           lat: 41.8937,
@@ -50,10 +42,7 @@ export default {
       ]
     };
   },
-  created: function() {
-    this.jwt = localStorage.jwt;
-    console.log("My jwt is", this.jwt);
-  },
+  created: function() {},
   mounted: function() {
     mapboxgl.accessToken =
       "pk.eyJ1IjoianBlZWJsZXMyIiwiYSI6ImNqdWRhc2h5cTB0NzI0M25xZWZ6cThtcTYifQ.rFfoxhSgmZHr66vMqgnxfQ";
@@ -109,10 +98,6 @@ export default {
       );
     });
   },
-  methods: {
-    setJwt: function() {
-      this.jwt = localStorage.jwt;
-    }
-  }
+  methods: {}
 };
 </script>

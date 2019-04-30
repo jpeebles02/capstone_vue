@@ -75,9 +75,10 @@
                   <th scope="row">How many reps are you doing?</th>
                   <td>{{ this.exercise.amount }}<input type="text" v-model="amount" /></td>
                 </tr>
+
                 <tr>
                   <th scope="row">Add to Routine</th>
-                  <td><button v-on:click="createRoutine()">Add</button></td>
+                  <td v-on:click="createRoutine()"><a href="/routines" class="btn btn-primary">Add to Routine</a></td>
                 </tr>
               </tbody>
             </table>

@@ -14,13 +14,9 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-sm-12 text-center">
-                        <h1 class="hero__h1">Create Personalized Worlout Schedules</h1>
-                        <h2 class="hero__h2">Easily With Beatrix</h2>
-                        <p class="hero__intro">
-                          Multipurpose responsive template powered by Bootstrap
-                        </p>
+                        <h1 class="hero__h1">Welcome to healF</h1>
                         <div class="hero__action">
-                          <a href="/userhomepage" class="btn btn-lg btn-primary">Your Home Page</a>
+                          <a href="/userhomepage" class="btn btn-lg btn-primary" v-if="jwt">Your Home Page</a>
                         </div>
                       </div>
                     </div>
@@ -41,11 +37,7 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-sm-12 text-center">
-                        <h1 class="hero__h1">Super Flexible Layout</h1>
-                        <h2 class="hero__h2">With 20+ HTML Templates</h2>
-                        <p class="hero__intro">
-                          Build upon existing templates or create new pages with custom UI elements
-                        </p>
+                        <h1 class="hero__h1">Welcome to healF</h1>
                         <div class="hero__action">
                           <a href="/exercises" class="btn btn-lg btn-primary">View Exercises</a>
                         </div>
@@ -68,13 +60,9 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-sm-12 text-center">
-                        <h1 class="hero__h1">Free Updates & Support</h1>
-                        <h2 class="hero__h2">For All Types of Licenses</h2>
-                        <p class="hero__intro">
-                          Feel free to contact us via e-mail or comments tab
-                        </p>
+                        <h1 class="hero__h1">Welcome to healF</h1>
                         <div class="hero__action">
-                          <a href="/routines" class="btn btn-lg btn-primary">View Your Routines</a>
+                          <a href="/routines" class="btn btn-lg btn-primary" v-if="jwt">View Your Routines</a>
                         </div>
                       </div>
                     </div>
@@ -120,7 +108,7 @@
         <div class="row">
           <div class="col-xs-12">
             <h1 class="section__title">
-              Our Core Features
+              Getting fit =
             </h1>
             <p class="section__intro">
               Beatrix is a super flexible HTML5 template that would perfectly fit a project of any size and complexity
@@ -141,7 +129,7 @@
               </div>
               <!-- Title -->
               <h2 class="features__title">
-                Truly Responsive
+                Stay Focused
               </h2>
               <!-- Intro -->
               <p class="features__intro">
@@ -202,10 +190,10 @@
         <div class="row">
           <div class="col-xs-12">
             <h1 class="section__title">
-              Showcase Your Work
+              Buy a Product
             </h1>
             <p class="section__intro">
-              Powered by Isotope, your portfolio has never been more engaging
+              We sell products on our site!
             </p>
             <div class="section__hr section__hr_center"></div>
           </div>
@@ -406,7 +394,7 @@
         <div class="row">
           <div class="col-xs-12">
             <h1 class="section__title">
-              Our Trainers
+              Book an Appointment with a local Trainer
             </h1>
             <p class="section__intro">
               A team of hard-working enthusiastic people who helped this product come to life

@@ -9,8 +9,8 @@
             <h3 class="page-header__title">All Exercises</h3>
             <ol class="breadcrumb page-header__breadcrumb">
               <li><a href="/">Back Home</a></li>
-              <li><a href="/userhomepage">Your Home Page</a></li>
-              <li><a href="/routines">Your Routines</a></li>
+              <li><a href="/userhomepage" v-if="jwt">Your Home Page</a></li>
+              <li><a href="/routines" v-if="jwt">Your Routines</a></li>
               <li class="active">All Exercises</li>
             </ol>
           </div>
