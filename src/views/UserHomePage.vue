@@ -1,5 +1,6 @@
 <template>
   <div class="userhomepage" style="min-height: 180vh;">
+    <highcharts :options="chartOptions"></highcharts>
     <!-- / .container -->
     <div class="profile__header">
       <div class="container">
@@ -242,9 +243,10 @@
 
 <script>
 import Vue from "vue";
-import VueSwal from 'vue-swal'
+import HighchartsVue from 'highcharts-vue';
+import {Chart} from 'highcharts-vue'
 
-Vue.use(VueSwal)
+Vue.use(HighchartsVue);
 
 var axios = require("axios");
 /* global mapboxgl */
@@ -271,7 +273,12 @@ export default {
           description:
             "Members-only gym in the Merchandise Mart offering exercise equipment, classes & personal training"
         }
-      ]
+      ],
+      chartOptions: {
+        series: [{
+          data: [1,2,3] 
+        }]
+      }
     };
   },
 
