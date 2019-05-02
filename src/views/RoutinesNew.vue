@@ -1,5 +1,5 @@
 <template>
-  <div class="routines-new">
+  <div class="routinesnew">
     <!-- PAGE CONTENT
     ============================== -->
     <div class="container">
@@ -68,7 +68,7 @@ var axios = require("axios");
 export default {
   data: function() {
     return {
-      rotines: [],
+      routines: [],
       routineName: "",
       selected: ""
     };

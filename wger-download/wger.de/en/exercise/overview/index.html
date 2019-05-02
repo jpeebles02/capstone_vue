@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<!--
+    This file is part of wger Workout Manager
+
+    wger is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    wger is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with Workout Manager. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+
+    
+
+<html lang="en">
+
+<!-- Mirrored from wger.de/en/exercise/overview/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 May 2019 04:51:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta charset="utf-8"><meta name="author" content="Roland Geider"><meta name="google-site-verification" content="Ot1mvBzMtxWYqg4qxrLUVAEx7ELYgJbV-9l63IRxRn8" /><meta name="msvalidate.01" content="EDD23891864A23996A05BB71B0475339" /><meta name="viewport" content="width=device-width, initial-scale=1"><!-- OpenGraph --><meta property="og:url" content="index.html"><meta property="og:type" content="website"><meta property="og:image" content="https://wger.de/static/images/logos/logo-marketplace-256.png"><!-- twitter cards --><link rel="stylesheet" href="https://wger.de/static/CACHE/css/49a43285c5ef.css" type="text/css" /><link rel="icon" href="https://wger.de/static/images/favicon.png" type="image/png"><script type="text/javascript" src="https://wger.de/static/CACHE/js/cda15c149c50.js"></script><script>
+$(document).ready(function() {
+
+    // Init the autocompleter
+    $('#exercise-search').autocomplete({
+        serviceUrl: '/api/v2/exercise/search/',
+        showNoSuggestionNotice: true,
+        dataType: 'json',
+        paramName: 'term',
+        groupBy: 'category',
+        minChars: 3,
+        onSelect: function (suggestion) {
+            window.location.href = '/exercise/' + suggestion.data.id + '/view/'
+        }
+    });
+});
+</script><script>
+    $(document).ready(function() {
+
+        if (typeof wgerCustomPageInit != "undefined")
+        {
+            wgerCustomPageInit();
+        }
+
+        // Init the modal dialog for editing forms
+        wgerFormModalDialog();
+
+        // Initialise the hook to reload the main-content
+        wgerLoadMaincontent();
+
+        // Check for RO-access before allowing sharing
+        wgerToggleReadOnlyAccess();
+     });
+    </script><title>Exercises</title></head><body><header><div class="container"><div class="row"><div class="col-md-9" style="padding-bottom: 0.5em;"><span class="name">wger</span><span class="regular">| Workout Manager</span></div><div class="col-md-3"><a href="../../contact.html">Get in touch</a>
+                |
+
+                
+                
+                
+                <div class="btn-group"><button type="button" class="btn btn-primary dropdown-toggle btn-xs" data-toggle="dropdown"><img src="https://wger.de/static/images/icons/flag-en.svg"
+                             width="18"
+                             height="11"
+                             alt="English"
+                             title="English"
+                             style="border: 1px solid #151515;">
+                        English <span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="index.html"><img src="https://wger.de/static/images/icons/flag-en.svg"
+     width="18"
+     height="11"
+     alt="English"
+     title="English"
+     style="border: 1px solid #151515;">
+English</a></li><li><a href="https://wger.de/de/exercise/overview/"><img src="https://wger.de/static/images/icons/flag-de.svg"
+     width="18"
+     height="11"
+     alt="German"
+     title="German"
+     style="border: 1px solid #151515;">
+German</a></li><li><a href="https://wger.de/bg/exercise/overview/"><img src="https://wger.de/static/images/icons/flag-bg.svg"
+     width="18"
+     height="11"
+     alt="Bulgarian"
+     title="Bulgarian"
+     style="border: 1px solid #151515;">
+Bulgarian</a></li><li><a href="https://wger.de/es/exercise/overview/"><img src="https://wger.de/static/images/icons/flag-es.svg"
+     width="18"
+     height="11"
+     alt="Spanish"
+     title="Spanish"
+     style="border: 1px solid #151515;">
+Spanish</a></li><li><a href="https://wger.de/ru/exercise/overview/"><img src="https://wger.de/static/images/icons/flag-ru.svg"
+     width="18"
+     height="11"
+     alt="Russian"
+     title="Russian"
+     style="border: 1px solid #151515;">
+Russian</a></li><li><a href="https://wger.de/nl/exercise/overview/"><img src="https://wger.de/static/images/icons/flag-nl.svg"
+     width="18"
+     height="11"
+     alt="Dutch"
+     title="Dutch"
+     style="border: 1px solid #151515;">
+Dutch</a></li><li><a href="https://wger.de/pt/exercise/overview/"><img src="https://wger.de/static/images/icons/flag-pt.svg"
+     width="18"
+     height="11"
+     alt="Portuguese"
+     title="Portuguese"
+     style="border: 1px solid #151515;">
+Portuguese</a></li><li><a href="https://wger.de/el/exercise/overview/"><img src="https://wger.de/static/images/icons/flag-el.svg"
+     width="18"
+     height="11"
+     alt="Greek"
+     title="Greek"
+     style="border: 1px solid #151515;">
+Greek</a></li><li><a href="https://wger.de/cs/exercise/overview/"><img src="https://wger.de/static/images/icons/flag-cs.svg"
+     width="18"
+     height="11"
+     alt="Czech"
+     title="Czech"
+     style="border: 1px solid #151515;">
+Czech</a></li><li><a href="https://wger.de/sv/exercise/overview/"><img src="https://wger.de/static/images/icons/flag-sv.svg"
+     width="18"
+     height="11"
+     alt="Swedish"
+     title="Swedish"
+     style="border: 1px solid #151515;">
+Swedish</a></li><li><a href="https://wger.de/no/exercise/overview/"><img src="https://wger.de/static/images/icons/flag-no.svg"
+     width="18"
+     height="11"
+     alt="Norwegian"
+     title="Norwegian"
+     style="border: 1px solid #151515;">
+Norwegian</a></li><li><a href="https://wger.de/fr/exercise/overview/"><img src="https://wger.de/static/images/icons/flag-fr.svg"
+     width="18"
+     height="11"
+     alt="French"
+     title="French"
+     style="border: 1px solid #151515;">
+French</a></li><li class="divider"></li><li><a href="https://www.transifex.com/rge/wger-workout-manager/"><span class="fa fa-plus fa-fw"></span>
+                                Translate
+                            </a></li></ul></div></div></div></div></header><nav id="nav"><div><div class="navbar navbar-inverse"><div class="container"><div class="navbar-header" ><a class="navbar-toggle hidden-xs" data-toggle="collapse" data-target="#main-navbar-navigation"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a></div><div class="navbar-collapse collapse" id="main-navbar-navigation"><ul class="nav navbar-nav"><li ><a href="../../index.html">
+                                
+                                    Dashboard
+                                
+                            </a></li><li class="dropdown "><a href="../../workout/overview.html"
+                               rel="nofollow"
+                               class="dropdown-toggle"
+                               data-toggle="dropdown">Workouts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../../workout/overview.html" rel="nofollow">Workouts</a></li><li><a href="../../workout/calendar/bedb72ef7d6a4ef19a208788a3f6a0.html" rel="nofollow">Calendar</a></li><li><a href="../../workout/schedule/overview.html" rel="nofollow">Workouts schedules</a></li></ul></li><li class="dropdown active"><a href="index.html"
+                               class="dropdown-toggle"
+                               data-toggle="dropdown">Exercises <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="index.html">Exercises</a></li><li><a href="../muscle/overview/index.html">Muscle overview</a></li><li><a href="../equipment/overview.html">Equipment overview</a></li></ul></li><li class="dropdown"><a href="../../weight/overview/bedb72ef7d6a4ef19a208788a3f6a0.html"
+                               class="dropdown-toggle"
+                               data-toggle="dropdown"
+                               rel="nofollow">Weight <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../../weight/overview/bedb72ef7d6a4ef19a208788a3f6a0.html" rel="nofollow">Weight overview</a></li><li><a href="../../weight/add/index.html" rel="nofollow">Add weight entry</a></li></ul></li><li class="dropdown "><a href="../../nutrition/overview/index.html"
+                               class="dropdown-toggle"
+                               data-toggle="dropdown"
+                               rel="nofollow">Nutrition <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../../nutrition/overview/index.html" rel="nofollow">Nutrition plans</a></li><li><a href="../../nutrition/ingredient/overview/index.html">Ingredient overview</a></li><li><a href="../../nutrition/calculator/bmi/index.html" rel="nofollow">BMI calculator</a></li><li><a href="../../nutrition/calculator/calories/index.html" rel="nofollow">Daily calories calculator</a></li></ul></li><li class="dropdown "><a href="#"
+                               class="dropdown-toggle"
+                               data-toggle="dropdown">About this software <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../../software/features.html">Features</a></li><li><a href="../../software/contribute.html">Contribute! </a></li><li><a href="../../software/issues.html">Problems and wishes </a></li><li><a href="../../software/terms-of-service.html">Terms of service </a></li><li class="divider"></li><li><a href="../../software/api.html">REST API </a></li><li><a href="../../software/license.html">License </a></li><li><a href="https://wger.readthedocs.io/"><span class="fa fa-external-link" aria-hidden="true"></span>
+                                        Developer documentation
+                                    </a></li><li><a href="https://github.com/wger-project/wger"><span class="fa fa-external-link" aria-hidden="true"></span>
+                                        Get the code (Github)
+                                    </a></li><li><a href="https://www.transifex.com/rge/wger-workout-manager/"><span class="fa fa-external-link" aria-hidden="true"></span>
+                                        Translate with Transifex
+                                    </a></li></ul></li><li class="dropdown visible-xs-block visible-sm-block"><a href="#"
+                               class="dropdown-toggle"
+                               data-toggle="dropdown">Options <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../../contact.html">Get in touch</a></li><li><a href="../../about.html">About</a></li><li><a href="#language-options" data-toggle="modal">Language</a></li></ul></li></ul><ul class="nav navbar-nav pull-right"><li class="divider-vertical"></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Login / Register
+                                    <span class="caret"></span></a><ul class="dropdown-menu"><li><a href="../../user/login.html">Login</a></li><li><a href="../../user/registration.html">Register</a></li><li><a href="../../user/password/reset/index.html">Reset password</a></li></ul></li></ul></div><!--/.nav-collapse --></div></div></div></nav><div id="main"><div class="container" style="padding-bottom: 1em;"><div class="modal fade" id="wger-ajax-info" tabindex="-1" role="dialog"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button"
+                                class="close"
+                                data-dismiss="modal"
+                                aria-hidden="true"
+                                style="padding-left: 0.5em;">&times;</button><h4 class="modal-title" id="ajax-info-title">Modal title</h4></div><div class="modal-body" id="ajax-info-content"></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div id="current-url" data-current-url="/en/exercise/overview/"></div><div id="current-language" data-current-language="en"></div><div class="alert alert-warning" role="alert" style="padding:0.6em; margin-top: 1em; text-align:center; font-size:95%;">
+                You are using a guest account, data entered will be deleted after a week.
+                
+                <a href="../../dashboard.html" rel="nofollow" class="btn btn-success btn-xs">
+                    Create some demo entries
+                    <span class="glyphicon glyphicon-chevron-right"></span></a></div><style>
+  .shariff li { overflow: visible; }
+</style><div class="modal fade" id="shariffModal"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">Share this page</h4></div><div class="modal-body"><div class="shariff " data-lang="en"></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="row"><div class="col-sm-8"><h2 id="page-title" class="page-header">
+            Exercises
+        </h2></div><div class="col-sm-4" style="padding-top: 15px; padding-bottom: 15px;"><div class="btn-group"><a href="#" class="btn btn-success btn-sm disabled">
+            Add new exercise<br><small>
+            Only registered users can do this
+            </small></a><button type="button"
+                        class="btn btn-default btn-sm"
+                        data-toggle="modal"
+                        data-target="#shariffModal"><span class="glyphicon glyphicon-retweet"></span>
+                    Share
+                </button></div></div></div><div class="row"><div class="col-sm-8" id="main-content"><div id="content"><ul class="nav nav-tabs"><li class="active"><a href="#tab-8" id="category-8" data-toggle="tab">Arms</a></li><li ><a href="#tab-9" id="category-9" data-toggle="tab">Legs</a></li><li ><a href="#tab-10" id="category-10" data-toggle="tab">Abs</a></li><li ><a href="#tab-11" id="category-11" data-toggle="tab">Chest</a></li><li ><a href="#tab-12" id="category-12" data-toggle="tab">Back</a></li><li ><a href="#tab-13" id="category-13" data-toggle="tab">Shoulders</a></li><li ><a href="#tab-14" id="category-14" data-toggle="tab">Calves</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-8"><div class="list-group"><a href="../289/view/axe-hold.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Axe Hold</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../344/view/barbell-triceps-extension.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Barbell Triceps Extension</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../88/view/bench-press-narrow-grip.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Bench Press Narrow Grip"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/88/Narrow-grip-bench-press-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Bench Press Narrow Grip</h4><span class="text-muted">
+                            
+                                Barbell
+                                ,
+                            
+                                Bench
+                                
+                            
+                        </span></div></div></a><a href="../129/view/biceps-curl-with-cable.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Biceps Curl With Cable"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/129/Standing-biceps-curl-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Biceps Curl With Cable</h4><span class="text-muted"></span></div></div></a><a href="../74/view/biceps-curls-with-barbell.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Biceps Curls With Barbell"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/74/Bicep-curls-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Biceps Curls With Barbell</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../81/view/biceps-curls-with-dumbbell.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Biceps Curls With Dumbbell"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/81/Biceps-curl-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Biceps Curls With Dumbbell</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../80/view/biceps-curls-with-sz-bar.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Biceps Curls With SZ-bar</h4><span class="text-muted">
+                            
+                                SZ-Bar
+                                
+                            
+                        </span></div></div></a><a href="../341/view/body-ups.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Body-Ups</h4><span class="text-muted">
+                            
+                                none (bodyweight exercise)
+                                
+                            
+                        </span></div></div></a><a href="../217/view/close-grip-bench-press.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Close-grip Bench Press</h4><span class="text-muted">
+                            
+                                Barbell
+                                ,
+                            
+                                Bench
+                                
+                            
+                        </span></div></div></a><a href="../347/view/deadhang.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Deadhang</h4><span class="text-muted"></span></div></div></a><a href="../82/view/dips.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Dips"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/82/Tricep-dips-2-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Dips</h4><span class="text-muted"></span></div></div></a><a href="../83/view/dips-between-two-benches.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Dips Between Two Benches"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/83/Bench-dips-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Dips Between Two Benches</h4><span class="text-muted">
+                            
+                                Bench
+                                
+                            
+                        </span></div></div></a><a href="../275/view/dumbbell-concentration-curl.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Dumbbell Concentration Curl</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../298/view/dumbbell-incline-curl.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Dumbbell Incline Curl</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../274/view/dumbbell-triceps-extension.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Dumbbell Triceps Extension</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../87/view/dumbbells-on-scott-machine.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Dumbbells on Scott Machine</h4><span class="text-muted"></span></div></div></a><a href="../85/view/french-press-skullcrusher-dumbbells.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">French Press (skullcrusher) Dumbbells</h4><span class="text-muted">
+                            
+                                Bench
+                                ,
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../84/view/french-press-skullcrusher-sz-bar.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="French Press (skullcrusher) SZ-bar"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/84/Lying-close-grip-triceps-press-to-chin-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">French Press (skullcrusher) SZ-bar</h4><span class="text-muted">
+                            
+                                Bench
+                                ,
+                            
+                                SZ-Bar
+                                
+                            
+                        </span></div></div></a><a href="../86/view/hammercurls.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Hammercurls"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/86/Bicep-hammer-curl-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Hammercurls</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../138/view/hammercurls-on-cable.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Hammercurls on Cable"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/138/Hammer-curls-with-rope-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Hammercurls on Cable</h4><span class="text-muted"></span></div></div></a><a href="../317/view/hand-grip.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Hand Grip</h4><span class="text-muted"></span></div></div></a><a href="../291/view/hercules-pillars.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Hercules Pillars</h4><span class="text-muted"></span></div></div></a><a href="../256/view/military-press.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Military Press</h4><span class="text-muted">
+                            
+                                SZ-Bar
+                                
+                            
+                        </span></div></div></a><a href="../361/view/pike-push-ups.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Pike Push Ups</h4><span class="text-muted">
+                            
+                                none (bodyweight exercise)
+                                
+                            
+                        </span></div></div></a><a href="../193/view/preacher-curls.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Preacher Curls"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/193/Preacher-curl-3-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Preacher Curls</h4><span class="text-muted"></span></div></div></a><a href="../195/view/push-ups.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Push Ups"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/195/Push-ups-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Push Ups</h4><span class="text-muted">
+                            
+                                none (bodyweight exercise)
+                                
+                            
+                        </span></div></div></a><a href="../208/view/reverse-bar-curl.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Reverse Bar Curl</h4><span class="text-muted">
+                            
+                                SZ-Bar
+                                
+                            
+                        </span></div></div></a><a href="../360/view/ring-dips.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Ring Dips</h4><span class="text-muted"></span></div></div></a><a href="../386/view/seated-triceps-press.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Seated Triceps Press</h4><span class="text-muted">
+                            
+                                Bench
+                                ,
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../205/view/single-arm-preacher-curl.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Single-arm Preacher Curl</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../218/view/smith-machine-close-grip-bench-press.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Smith Machine Close-grip Bench Press</h4><span class="text-muted"></span></div></div></a><a href="../382/view/standing-rope-forearm.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Standing Rope Forearm</h4><span class="text-muted"></span></div></div></a><a href="../279/view/tricep-dumbbell-kickback.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Tricep Dumbbell Kickback</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../186/view/triceps-bench-press-one-barbell.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Triceps Bench Press One Barbell</h4><span class="text-muted"></span></div></div></a><a href="../162/view/triceps-dips.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Triceps Dips</h4><span class="text-muted"></span></div></div></a><a href="../89/view/triceps-extensions-on-cable.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Triceps Extensions on Cable</h4><span class="text-muted"></span></div></div></a><a href="../90/view/triceps-extensions-on-cable-with-bar.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Triceps Extensions on Cable With Bar</h4><span class="text-muted"></span></div></div></a><a href="../139/view/triceps-machine.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Triceps Machine</h4><span class="text-muted"></span></div></div></a><a href="../203/view/wall-pushup.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Wall Pushup</h4><span class="text-muted">
+                            
+                                none (bodyweight exercise)
+                                
+                            
+                        </span></div></div></a><a href="../305/view/z-curls.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Z Curls</h4><span class="text-muted"></span></div></div></a></div></div><div class="tab-pane " id="tab-9"><div class="list-group"><a href="../407/view/barbell-hack-squats.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Barbell Hack Squats</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../405/view/barbell-lunges.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Barbell Lunges</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../342/view/braced-squat.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Braced Squat</h4><span class="text-muted"></span></div></div></a><a href="../346/view/bulgarian-split-squat.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Bulgarian Split Squat</h4><span class="text-muted"></span></div></div></a><a href="../300/view/dumbbell-goblet-squat.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Dumbbell Goblet Squat</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../112/view/dumbbell-lunges-standing.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Dumbbell Lunges Standing</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../113/view/dumbbell-lunges-walking.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Dumbbell Lunges Walking"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/113/Walking-lunges-1.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Dumbbell Lunges Walking</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../191/view/front-squats.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Front Squats"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/191/Front-squat-1-857x1024.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Front Squats</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../408/view/glute-bridge.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Glute Bridge</h4><span class="text-muted"></span></div></div></a><a href="../116/view/good-mornings.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Good Mornings"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/116/Good-mornings-2.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Good Mornings</h4><span class="text-muted"></span></div></div></a><a href="../304/view/high-knee-jumps.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">High Knee Jumps</h4><span class="text-muted"></span></div></div></a><a href="../432/view/high-knees.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">High Knees</h4><span class="text-muted"></span></div></div></a><a href="../423/view/jogging.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Jogging</h4><span class="text-muted"></span></div></div></a><a href="../249/view/kettlebell-swings.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Kettlebell Swings</h4><span class="text-muted"></span></div></div></a><a href="../154/view/leg-curls-laying.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Leg Curls (laying)"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/154/lying-leg-curl-machine-large-1.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Leg Curls (laying)</h4><span class="text-muted"></span></div></div></a><a href="../117/view/leg-curls-sitting.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Leg Curls (sitting)"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/117/seated-leg-curl-large-1.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Leg Curls (sitting)</h4><span class="text-muted"></span></div></div></a><a href="../118/view/leg-curls-standing.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Leg Curls (standing)"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/118/standing-leg-curls-large-1.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Leg Curls (standing)</h4><span class="text-muted"></span></div></div></a><a href="../177/view/leg-extension.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Leg Extension"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/177/Seated-leg-curl-1.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Leg Extension</h4><span class="text-muted"></span></div></div></a><a href="../130/view/leg-press-on-hackenschmidt-machine.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Leg Press on Hackenschmidt Machine"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/130/Narrow-stance-hack-squats-1-1024x721.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Leg Press on Hackenschmidt Machine</h4><span class="text-muted"></span></div></div></a><a href="../115/view/leg-presses-narrow.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Leg Presses (narrow)</h4><span class="text-muted"></span></div></div></a><a href="../114/view/leg-presses-wide.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Leg Presses (wide)</h4><span class="text-muted"></span></div></div></a><a href="../389/view/low-box-squat-wide-stance.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Low Box Squat - Wide Stance</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../355/view/overhead-squat.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Overhead Squat</h4><span class="text-muted"></span></div></div></a><a href="../160/view/pistol-squat.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Pistol Squat</h4><span class="text-muted"></span></div></div></a><a href="../351/view/romanian-deadlift.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Romanian Deadlift</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../397/view/run.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Run</h4><span class="text-muted"></span></div></div></a><a href="../398/view/run-interval-training.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Run - Interval Training </h4><span class="text-muted"></span></div></div></a><a href="../269/view/run-treadmill.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Run - Treadmill</h4><span class="text-muted"></span></div></div></a><a href="../328/view/speed-deadlift.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Speed Deadlift</h4><span class="text-muted"></span></div></div></a><a href="../185/view/squat-jumps.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Squat Jumps</h4><span class="text-muted"></span></div></div></a><a href="../111/view/squats.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Squats"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/111/Wide-stance-squat-2.gif.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Squats</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../293/view/stationary-bike.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Stationary Bike</h4><span class="text-muted"></span></div></div></a><a href="../209/view/stiff-legged-deadlifts.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Stiff-legged Deadlifts</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../396/view/thruster.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Thruster</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../387/view/wall-squat.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Wall Squat</h4><span class="text-muted">
+                            
+                                none (bodyweight exercise)
+                                
+                            
+                        </span></div></div></a><a href="../320/view/weighted-step.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Weighted Step</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../321/view/weighted-step-ups.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Weighted Step-ups</h4><span class="text-muted"></span></div></div></a></div></div><div class="tab-pane " id="tab-10"><div class="list-group"><a href="../345/view/2-handed-kettlebell-swing.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">2 Handed Kettlebell Swing</h4><span class="text-muted">
+                            
+                                Kettlebell
+                                
+                            
+                        </span></div></div></a><a href="../343/view/barbell-ab-rollout.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Barbell Ab Rollout</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../167/view/cable-woodchoppers.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Cable Woodchoppers</h4><span class="text-muted"></span></div></div></a><a href="../91/view/crunches.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Crunches"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/91/Crunches-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Crunches</h4><span class="text-muted">
+                            
+                                Bench
+                                ,
+                            
+                                Gym mat
+                                
+                            
+                        </span></div></div></a><a href="../92/view/crunches-with-cable.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Crunches With Cable</h4><span class="text-muted"></span></div></div></a><a href="../416/view/crunches-with-legs-up.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Crunches With Legs Up</h4><span class="text-muted"></span></div></div></a><a href="../94/view/crunches-on-machine.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Crunches on Machine</h4><span class="text-muted"></span></div></div></a><a href="../303/view/flutter-kicks.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Flutter Kicks</h4><span class="text-muted"></span></div></div></a><a href="../326/view/full-sit-outs.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Full Sit Outs</h4><span class="text-muted">
+                            
+                                none (bodyweight exercise)
+                                
+                            
+                        </span></div></div></a><a href="../166/view/hanging-leg-raises.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Hanging Leg Raises</h4><span class="text-muted"></span></div></div></a><a href="../383/view/hollow-hold.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Hollow Hold</h4><span class="text-muted">
+                            
+                                Gym mat
+                                ,
+                            
+                                none (bodyweight exercise)
+                                
+                            
+                        </span></div></div></a><a href="../165/view/incline-plank-with-alternate-floor-touch.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Incline Plank With Alternate Floor Touch</h4><span class="text-muted"></span></div></div></a><a href="../281/view/l-hold.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">L Hold</h4><span class="text-muted"></span></div></div></a><a href="../125/view/leg-raises-lying.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Leg Raises, Lying"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/125/Leg-raises-2.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Leg Raises, Lying</h4><span class="text-muted">
+                            
+                                Gym mat
+                                
+                            
+                        </span></div></div></a><a href="../126/view/leg-raises-standing.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Leg Raises, Standing</h4><span class="text-muted"></span></div></div></a><a href="../93/view/negative-crunches.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Negative Crunches"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/93/Decline-crunch-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Negative Crunches</h4><span class="text-muted"></span></div></div></a><a href="../197/view/overhand-cable-curl.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Overhand Cable Curl</h4><span class="text-muted"></span></div></div></a><a href="../238/view/plank.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Plank</h4><span class="text-muted">
+                            
+                                none (bodyweight exercise)
+                                
+                            
+                        </span></div></div></a><a href="../409/view/reverse-plank.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Reverse Plank</h4><span class="text-muted"></span></div></div></a><a href="../263/view/roman-chair.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Roman Chair</h4><span class="text-muted"></span></div></div></a><a href="../176/view/side-crunch.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Side Crunch"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/176/Cross-body-crunch-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Side Crunch</h4><span class="text-muted">
+                            
+                                Gym mat
+                                
+                            
+                        </span></div></div></a><a href="../325/view/side-plank.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Side Plank</h4><span class="text-muted">
+                            
+                                none (bodyweight exercise)
+                                
+                            
+                        </span></div></div></a><a href="../95/view/sit-ups.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Sit-ups</h4><span class="text-muted"></span></div></div></a><a href="../170/view/splinter-sit-ups.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Splinter Sit-ups</h4><span class="text-muted"></span></div></div></a><a href="../310/view/trunk-rotation-with-cable.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Trunk Rotation With Cable </h4><span class="text-muted"></span></div></div></a><a href="../318/view/turkish-get-up.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Turkish Get-Up</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a></div></div><div class="tab-pane " id="tab-11"><div class="list-group"><a href="../388/view/bear-walk.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Bear Walk</h4><span class="text-muted"></span></div></div></a><a href="../307/view/bear-walk.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Bear Walk</h4><span class="text-muted">
+                            
+                                none (bodyweight exercise)
+                                
+                            
+                        </span></div></div></a><a href="../192/view/bench-press.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Bench Press"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/192/Bench-press-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Bench Press</h4><span class="text-muted">
+                            
+                                Barbell
+                                ,
+                            
+                                Bench
+                                
+                            
+                        </span></div></div></a><a href="../97/view/benchpress-dumbbells.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Benchpress Dumbbells"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/97/Dumbbell-bench-press-1.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Benchpress Dumbbells</h4><span class="text-muted">
+                            
+                                Bench
+                                ,
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../354/view/burpees.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Burpees</h4><span class="text-muted"></span></div></div></a><a href="../98/view/butterfly.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Butterfly"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/98/Butterfly-machine-2.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Butterfly</h4><span class="text-muted"></span></div></div></a><a href="../99/view/butterfly-narrow-grip.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Butterfly Narrow Grip</h4><span class="text-muted"></span></div></div></a><a href="../207/view/cable-cross-over.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Cable Cross-over</h4><span class="text-muted"></span></div></div></a><a href="../194/view/cross-bench-dumbbell-pullovers.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Cross-Bench Dumbbell Pullovers</h4><span class="text-muted"></span></div></div></a><a href="../100/view/decline-bench-press-barbell.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Decline Bench Press Barbell"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/100/Decline-bench-press-1.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Decline Bench Press Barbell</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../101/view/decline-bench-press-dumbbell.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Decline Bench Press Dumbbell</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../260/view/decline-pushups.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Decline Pushups</h4><span class="text-muted">
+                            
+                                none (bodyweight exercise)
+                                
+                            
+                        </span></div></div></a><a href="../414/view/extenseurs-face.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Extenseurs - Face</h4><span class="text-muted"></span></div></div></a><a href="../122/view/fly-with-cable.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Fly With Cable"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/122/Incline-cable-flyes-1.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Fly With Cable</h4><span class="text-muted"></span></div></div></a><a href="../145/view/fly-with-dumbbells.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Fly With Dumbbells</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../146/view/fly-with-dumbbells-decline-bench.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Fly With Dumbbells, Decline Bench</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../163/view/incline-bench-press.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Incline Bench Press"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/163/Incline-bench-press-1.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Incline Bench Press</h4><span class="text-muted">
+                            
+                                Barbell
+                                ,
+                            
+                                Incline bench
+                                
+                            
+                        </span></div></div></a><a href="../206/view/incline-dumbbell-flye.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Incline Dumbbell Flye</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                ,
+                            
+                                Incline bench
+                                
+                            
+                        </span></div></div></a><a href="../210/view/incline-dumbbell-press.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Incline Dumbbell Press</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                ,
+                            
+                                Incline bench
+                                
+                            
+                        </span></div></div></a><a href="../168/view/incline-pushups.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Incline Pushups</h4><span class="text-muted"></span></div></div></a><a href="../338/view/isometric-wipers.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Isometric Wipers</h4><span class="text-muted">
+                            
+                                none (bodyweight exercise)
+                                
+                            
+                        </span></div></div></a><a href="../211/view/leverage-machine-chest-press.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Leverage Machine Chest Press</h4><span class="text-muted"></span></div></div></a><a href="../270/view/pause-bench.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Pause Bench</h4><span class="text-muted">
+                            
+                                Barbell
+                                ,
+                            
+                                Bench
+                                
+                            
+                        </span></div></div></a><a href="../182/view/perfect-push-up.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Perfect Push Up</h4><span class="text-muted"></span></div></div></a><a href="../399/view/reverse-grip-bench-press.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Reverse Grip Bench Press</h4><span class="text-muted">
+                            
+                                Barbell
+                                ,
+                            
+                                Bench
+                                
+                            
+                        </span></div></div></a><a href="../302/view/side-to-side-push-ups.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Side to Side Push Ups</h4><span class="text-muted"></span></div></div></a><a href="../393/view/upper-body.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Upper Body</h4><span class="text-muted">
+                            
+                                Barbell
+                                ,
+                            
+                                Bench
+                                ,
+                            
+                                Dumbbell
+                                ,
+                            
+                                Gym mat
+                                ,
+                            
+                                Incline bench
+                                ,
+                            
+                                none (bodyweight exercise)
+                                
+                            
+                        </span></div></div></a><a href="../258/view/upper-external-oblique.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Upper External Oblique</h4><span class="text-muted">
+                            
+                                Pull-up bar
+                                
+                            
+                        </span></div></div></a></div></div><div class="tab-pane " id="tab-12"><div class="list-group"><a href="../412/view/bent-over-barbell-row.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Bent Over Barbell Row</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../109/view/bent-over-rowing.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Bent Over Rowing"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/109/Barbell-rear-delt-row-1.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Bent Over Rowing</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../110/view/bent-over-rowing-reverse.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Bent Over Rowing Reverse"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/110/Reverse-grip-bent-over-rows-1.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Bent Over Rowing Reverse</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../362/view/bentover-dumbbell-rows.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Bentover Dumbbell Rows</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../181/view/chin-ups.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Chin-ups"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/181/Chin-ups-2.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Chin-ups</h4><span class="text-muted">
+                            
+                                Pull-up bar
+                                
+                            
+                        </span></div></div></a><a href="../213/view/close-grip-lat-pull-down.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Close-grip Lat Pull Down</h4><span class="text-muted"></span></div></div></a><a href="../105/view/deadlifts.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Deadlifts</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../381/view/deficit-deadlift.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Deficit Deadlift</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../376/view/hip-raise-lying.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Hip Raise, Lying</h4><span class="text-muted">
+                            
+                                none (bodyweight exercise)
+                                
+                            
+                        </span></div></div></a><a href="../128/view/hyperextensions.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Hyperextensions"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/128/Hyperextensions-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Hyperextensions</h4><span class="text-muted"></span></div></div></a><a href="../340/view/incline-dumbbell-row.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Incline Dumbbell Row</h4><span class="text-muted">
+                            
+                                Bench
+                                ,
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../188/view/lat-pull-down-leaning-back.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Lat Pull Down (Leaning Back)</h4><span class="text-muted"></span></div></div></a><a href="../187/view/lat-pull-down-straight-back.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Lat Pull Down (Straight Back)</h4><span class="text-muted"></span></div></div></a><a href="../214/view/leverage-machine-iso-row.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Leverage Machine Iso Row</h4><span class="text-muted"></span></div></div></a><a href="../143/view/long-pulley-low-row.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Long-Pulley (low Row)"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/143/Cable-seated-rows-2.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Long-Pulley (low Row)</h4><span class="text-muted"></span></div></div></a><a href="../144/view/long-pulley-narrow.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Long-Pulley, Narrow</h4><span class="text-muted"></span></div></div></a><a href="../141/view/mgm-machine.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">MGM Machine</h4><span class="text-muted"></span></div></div></a><a href="../202/view/pendelay-rows.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Pendelay Rows</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../429/view/prone-scapular-retraction-arms-at-side.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Prone Scapular Retraction - Arms at Side</h4><span class="text-muted"></span></div></div></a><a href="../140/view/pull-ups-on-machine.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Pull Ups on Machine</h4><span class="text-muted"></span></div></div></a><a href="../107/view/pull-ups.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Pull-ups</h4><span class="text-muted">
+                            
+                                Pull-up bar
+                                
+                            
+                        </span></div></div></a><a href="../161/view/rack-deadlift.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Rack Deadlift"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/161/Dead-lifts-2.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Rack Deadlift</h4><span class="text-muted"></span></div></div></a><a href="../142/view/rowing-lying-on-bench.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Rowing, Lying on Bench</h4><span class="text-muted"></span></div></div></a><a href="../108/view/rowing-seated.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Rowing, Seated</h4><span class="text-muted"></span></div></div></a><a href="../106/view/rowing-t-bar.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Rowing, T-bar"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/106/T-bar-row-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Rowing, T-bar</h4><span class="text-muted"></span></div></div></a><a href="../339/view/shotgun-row.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Shotgun Row</h4><span class="text-muted"></span></div></div></a><a href="../278/view/side-dumbbell-trunk-flexion.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Side Dumbbell Trunk Flexion</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../216/view/straight-arm-pull-down-bar-attachment.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Straight-arm Pull Down (bar Attachment)</h4><span class="text-muted"></span></div></div></a><a href="../215/view/straight-arm-pull-down-rope-attachment.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Straight-arm Pull Down (rope Attachment)</h4><span class="text-muted"></span></div></div></a><a href="../330/view/superman.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Superman</h4><span class="text-muted">
+                            
+                                Gym mat
+                                
+                            
+                        </span></div></div></a><a href="../212/view/underhand-lat-pull-down.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Underhand Lat Pull Down</h4><span class="text-muted"></span></div></div></a><a href="../424/view/v-bar-pulldown.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">V-Bar Pulldown</h4><span class="text-muted"></span></div></div></a><a href="../204/view/wide-grip-pulldown.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Wide-grip Pulldown</h4><span class="text-muted"></span></div></div></a></div></div><div class="tab-pane " id="tab-13"><div class="list-group"><a href="../227/view/arnold-shoulder-press.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Arnold Shoulder Press</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../268/view/bent-high-pulls.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Bent High Pulls</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../421/view/bent-over-lateral-raises.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Bent-over Lateral Raises</h4><span class="text-muted">
+                            
+                                Bench
+                                ,
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../124/view/butterfly-reverse.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Butterfly Reverse</h4><span class="text-muted"></span></div></div></a><a href="../265/view/cable-external-rotation.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Cable External Rotation</h4><span class="text-muted"></span></div></div></a><a href="../329/view/diagonal-shoulder-press.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Diagonal Shoulder Press</h4><span class="text-muted">
+                            
+                                Bench
+                                
+                            
+                        </span></div></div></a><a href="../394/view/facepull.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Facepull</h4><span class="text-muted"></span></div></div></a><a href="../233/view/front-raises.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Front Raises</h4><span class="text-muted">
+                            
+                                Barbell
+                                ,
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../164/view/high-pull.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">High Pull</h4><span class="text-muted"></span></div></div></a><a href="../148/view/lateral-raises.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Lateral Raises"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/148/lateral-dumbbell-raises-large-2.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Lateral Raises</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../149/view/lateral-raises-on-cable-one-armed.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Lateral Raises on Cable, One Armed</h4><span class="text-muted"></span></div></div></a><a href="../306/view/lateral-to-front-raises.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Lateral-to-Front Raises</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../312/view/lying-rotator-cuff-exercise.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Lying Rotator Cuff Exercise</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../229/view/military-press.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Military Press</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../189/view/power-clean.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Power Clean</h4><span class="text-muted"></span></div></div></a><a href="../190/view/push-press.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Push Press</h4><span class="text-muted"></span></div></div></a><a href="../237/view/rear-delt-raises.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Rear Delt Raises</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../119/view/shoulder-press-barbell.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Shoulder Press, Barbell"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/119/seated-barbell-shoulder-press-large-1.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Shoulder Press, Barbell</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../123/view/shoulder-press-dumbbells.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Shoulder Press, Dumbbells"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/123/dumbbell-shoulder-press-large-1.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Shoulder Press, Dumbbells</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../152/view/shoulder-press-on-machine.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Shoulder Press, on Machine"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/152/seated-shoulder-press-machine-large-1.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Shoulder Press, on Machine</h4><span class="text-muted"></span></div></div></a><a href="../155/view/shoulder-press-on-multi-press.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Shoulder Press, on Multi Press</h4><span class="text-muted"></span></div></div></a><a href="../150/view/shrugs-barbells.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Shrugs, Barbells"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/150/Barbell-shrugs-1.png.80x80_q85.png"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Shrugs, Barbells</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../151/view/shrugs-dumbbells.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Shrugs, Dumbbells"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%;"
+                         src="https://wger.de/media/exercise-images/151/Dumbbell-shrugs-2.png.80x80_q85.jpg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Shrugs, Dumbbells</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../319/view/side-raise.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Side Raise</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../422/view/side-lying-external-rotation.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Side-lying External Rotation</h4><span class="text-muted"></span></div></div></a><a href="../271/view/snach.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Snach</h4><span class="text-muted">
+                            
+                                Barbell
+                                
+                            
+                        </span></div></div></a><a href="../311/view/upright-row-w-dumbbells.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Upright Row w/ Dumbbells</h4><span class="text-muted">
+                            
+                                Dumbbell
+                                
+                            
+                        </span></div></div></a><a href="../127/view/upright-row-sz-bar.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Upright Row, SZ-bar</h4><span class="text-muted">
+                            
+                                SZ-Bar
+                                
+                            
+                        </span></div></div></a><a href="../147/view/upright-row-on-multi-press.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Upright Row, on Multi Press</h4><span class="text-muted"></span></div></div></a><a href="../359/view/wall-handstand.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Wall Handstand</h4><span class="text-muted">
+                            
+                                none (bodyweight exercise)
+                                
+                            
+                        </span></div></div></a></div></div><div class="tab-pane " id="tab-14"><div class="list-group"><a href="../308/view/calf-press-using-leg-press-machine.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Calf Press Using Leg Press Machine</h4><span class="text-muted"></span></div></div></a><a href="../104/view/calf-raises-on-hackenschmitt-machine.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Calf Raises on Hackenschmitt Machine</h4><span class="text-muted"></span></div></div></a><a href="../103/view/sitting-calf-raises.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Sitting Calf Raises</h4><span class="text-muted"></span></div></div></a><a href="../411/view/skipping-standard.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Skipping - Standard</h4><span class="text-muted"></span></div></div></a><a href="../102/view/standing-calf-raises.html" class="list-group-item"><div class="visible-xs"><span class="glyphicon glyphicon-chevron-right pull-right"></span></div><div class="media"><div style="width:60px;height:60px;" class="media-left"><img alt="Placeholder image for exercise"
+                         class="media-object "
+                         style="max-width:100%; max-height:100%; opacity: 0.4;"
+                         src="https://wger.de/static/images/icons/image-placeholder.svg"></div><div class="media-body" style="position: absolute; top: 10px; left: 100px;"><h4 class="media-heading">Standing Calf Raises</h4><span class="text-muted"></span></div></div></a></div></div></div></div></div><div class="col-sm-4" id="main-sidebar"><h4>Search</h4><input name="term"
+           type="search"
+           id="exercise-search"
+           class="ajax-form-element form-control"
+           placeholder="exercise name"></div></div></div></div><footer id="main-footer"><div class="container"><a href="https://github.com/wger-project/wger" class="no-hover"><img src="https://wger.de/static/images/agpl-v3.svg"
+                 width="88"
+                 height="31"
+                 alt="Released under the Affero GPL"
+                 title="Released under the Affero GPL"></a><a href="../../about.html">About</a>
+        | <a href="../../software/contribute.html">Contribute!</a>
+        | <a href="../../contact.html">Get in touch</a>
+        | <a href="../../software/terms-of-service.html">Terms of service</a><div class="navbar-right"><em class="text-muted" style="font-size: 80%;">1.9a1-dev</em></div></div></footer><script src="https://login.persona.org/include.js" type="text/javascript"></script><!-- Piwik --><script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u="../../../../piwik.wger.de/index.html";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "1"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script><!-- End Piwik Code --><script src="https://wger.de/static/bower_components/shariff/build/shariff.min.js"></script></body>
+
+<!-- Mirrored from wger.de/en/exercise/overview/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 May 2019 04:57:27 GMT -->
+</html>

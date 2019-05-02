@@ -162,7 +162,8 @@ export default {
       exercises: [],
       searchFilter: "",
       sortAttribute: "name",
-      sortAscending: 1
+      sortAscending: 1,
+      jwt: null
     };
   },
   created: function() {

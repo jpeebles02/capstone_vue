@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+wger.de	TRUE	/	FALSE	1999999999	csrftoken	M2FjD7kezlz347NcBrS7BViXEfWHIelw
+wger.de	TRUE	/	FALSE	1999999999	sessionid	ok2lyjzwim14fk2zj916wmuupnlcvpb1
+

@@ -1,5 +1,5 @@
 <template>
-  <div class="userhomepage">
+  <div class="userhomepage" style="min-height: 180vh;">
     <!-- / .container -->
     <div class="profile__header">
       <div class="container">
@@ -9,6 +9,7 @@
             <div class="profile__avatar">
               <!-- <img src="img/photo_4.jpg" alt="..." class="img-responsive center-block" /> -->
               <img v-bind:src="user.image_url" v-bind:alt="user.name" class="img-responsive center-block" />
+
             </div>
           </div>
           <div class="col-sm-8 col-md-9 col-lg-10">
@@ -227,16 +228,24 @@
 
 <style>
 #map {
-  height: 300px;
-  text-align: initial;
+  position: absolute;
+  /*left: 300px;
+  right: 200px;*/
+  width: 50%;
+  height: 20%;
 }
-body {
+/*body {
   margin: 0;
   padding: 0;
-}
+}*/
 </style>
 
 <script>
+import Vue from "vue";
+import VueSwal from 'vue-swal'
+
+Vue.use(VueSwal)
+
 var axios = require("axios");
 /* global mapboxgl */
 /* global mapboxSdk */
@@ -265,6 +274,7 @@ export default {
       ]
     };
   },
+
   created: function() {
     this.jwt = localStorage.jwt;
     console.log("My jwt is", this.jwt);
@@ -293,6 +303,20 @@ export default {
       pitch: 45,
       bearing: -17.6
     });
+    map.addControl(
+      new MapboxDirections({
+        accessToken: mapboxgl.accessToken
+      }),
+      "top-left"
+    );
+    map.addControl(
+      new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        },
+        trackUserLocation: true
+      })
+    );
 
     this.places.forEach(function(place) {
       var popup = new mapboxgl.Popup({ offset: 25 }).setText(place.description);
@@ -343,3 +367,5 @@ export default {
   }
 };
 </script>
+
+
