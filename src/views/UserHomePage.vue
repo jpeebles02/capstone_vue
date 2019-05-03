@@ -1,6 +1,8 @@
 <template>
   <div class="userhomepage" style="min-height: 180vh;">
     <highcharts :options="chartOptions"></highcharts>
+    <p>First thing</p>
+    <input type="text" v-model="columnOne">
     <!-- / .container -->
     <div class="profile__header">
       <div class="container">
@@ -254,6 +256,7 @@ var axios = require("axios");
 export default {
   data: function() {
     return {
+      columnOne: "",
       user: [],
       jwt: null,
       places: [
@@ -276,8 +279,10 @@ export default {
       ],
       chartOptions: {
         series: [{
-          data: [1,2,3] 
-        }]
+        data: [30, 70, 50, 30, 10],
+        type: 'column',
+        name: "me"
+    }]
       }
     };
   },
@@ -370,6 +375,12 @@ export default {
   methods: {
     setJwt: function() {
       this.jwt = localStorage.jwt;
+    },
+  },
+  watch: {
+    columnOne: function() {
+        console.log("columnOne changed", this.columnOne, Chart)
+        // chartOptions.series[0].data[0]
     }
   }
 };

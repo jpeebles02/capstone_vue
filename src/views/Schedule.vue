@@ -1,5 +1,9 @@
 <template>
   <div id="schedules">
+
+    <div id="container"></div>
+    <input type="text" v-model="columnOne">
+
     <div class="page__header">
       <div class="container">
         <div class="row">
@@ -135,13 +139,25 @@ export default {
       //     }
       //   }
       // },
-      highlighted: {}
+      highlighted: {},
+      options: {
+        series: [{
+          data: [30, 70, 50, 30, 10],
+          type: 'column'
+        }]
+      },
+      chart: null,
+      columnOne: null
     };
   },
   created: function() {
     axios.get("/api/routines").then(response => {
       this.routines = response.data;
     });
+  },
+  mounted: function() {
+    this.chart = Highcharts.chart('container', this.options);
+    this.columnOne = this.options.series[0].data[0];
   },
   methods: {
     highlightTo(val) {
@@ -175,6 +191,13 @@ export default {
     //     daysOfMonth: highlightedDays
     //   };
     // }
+  },
+  watch: {
+    columnOne: function() {
+      console.log("columnOne changed");
+      const value = Number(this.columnOne) || null
+      this.chart.series[0].data[0].update(value) 
+    }
   }
 };
 </script>
