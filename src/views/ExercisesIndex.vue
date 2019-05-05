@@ -54,7 +54,7 @@
                       role="tab"
                       data-toggle="tab"
                       data-filter=".filter_photorealism"
-                      v-on:click="setSortAttribute('muscle_group_id')"
+                      v-on:click="muscleOne()"
                       >Sort by Muscle Group</a
                     >
                   </li>
@@ -196,7 +196,14 @@ export default {
         this.sortAscending = 1;
       }
       this.sortAttribute = inputAttribute;
-    }
+    },
+     muscleOne: function() {
+    axios.get("/api/muscle_groups/" + this.$route.params.id).then(response => {
+      this.muscle_group = response.data;
+      // this.muscle_groupId = this.muscle_group.id;
+      console.log(this.muscle_group);
+    });
+  }
   }
 };
 </script>

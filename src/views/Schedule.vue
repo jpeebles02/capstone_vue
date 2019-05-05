@@ -1,9 +1,6 @@
 <template>
   <div id="schedules">
 
-    <div id="container"></div>
-    <input type="text" v-model="columnOne">
-
     <div class="page__header">
       <div class="container">
         <div class="row">
@@ -36,7 +33,7 @@
             <table class="table">
               <tbody>
                 <tr>
-                  <th scope="row">Start Time</th>
+                  <th scope="row">Start Time: sessions run for one hour</th>
                   <td>
                     <strong
                       ><select v-model="selected">
@@ -57,27 +54,11 @@
                   <datepicker v-on:selected="highlightFrom"></datepicker>
                 </tr>
                 <tr>
-                  <th scope="row">End Time</th>
-                  <td>
-                    <strong
-                      ><select v-model="selected">
-                        <option selected> 6:00 am </option>
-                        <option> 7:00 am </option>
-                        <option> 8:00 am </option>
-                        <option> </option>
-                        <option> 9:00 am </option>
-                        <option> 6:00 pm </option>
-                        <option> 7:00 pm </option>
-                        <option> 8:00 pm </option>
-                      </select></strong
-                    >
-                  </td>
-                </tr>
-                <tr>
                   <th scope="row">Date</th>
                   <datepicker v-on:selected="highlightTo"></datepicker>
                 </tr>
                 <tr>
+                  highlighted: {{highlighted}}
                   <th scope="row">Choose a Routine</th>
                   <select v-model="routineId">
                     <option selected>-select-</option>
@@ -122,6 +103,7 @@ import Datepicker from "vuejs-datepicker/dist/vuejs-datepicker.esm.js";
 import * as lang from "vuejs-datepicker/src/locale";
 import moment from "moment";
 
+
 export default {
   name: "app",
   components: {
@@ -140,24 +122,13 @@ export default {
       //   }
       // },
       highlighted: {},
-      options: {
-        series: [{
-          data: [30, 70, 50, 30, 10],
-          type: 'column'
-        }]
-      },
-      chart: null,
-      columnOne: null
     };
   },
   created: function() {
     axios.get("/api/routines").then(response => {
       this.routines = response.data;
     });
-  },
-  mounted: function() {
-    this.chart = Highcharts.chart('container', this.options);
-    this.columnOne = this.options.series[0].data[0];
+
   },
   methods: {
     highlightTo(val) {
@@ -192,13 +163,7 @@ export default {
     //   };
     // }
   },
-  watch: {
-    columnOne: function() {
-      console.log("columnOne changed");
-      const value = Number(this.columnOne) || null
-      this.chart.series[0].data[0].update(value) 
-    }
-  }
+
 };
 </script>
 

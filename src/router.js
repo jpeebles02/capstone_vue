@@ -8,8 +8,9 @@ import UserHomePage from "./views/UserHomePage.vue";
 import ExercisesIndex from "./views/ExercisesIndex.vue";
 import ExercisesShow from "./views/ExercisesShow.vue";
 import RoutinesNew from "./views/RoutinesNew.vue";
+import AppointmentsNew from "./views/AppointmentsNew.vue";
 import RoutinesShow from "./views/RoutinesShow.vue";
-import ExerciseRoutinesNew from "./views/ExerciseRoutinesNew.vue";
+import UserWeightsNew from "./views/UserWeightsNew.vue";
 import Routines from "./views/Routines.vue";
 import Products from "./views/Products.vue";
 import ProductsShow from "./views/ProductsShow.vue";
@@ -32,8 +33,9 @@ export default new Router({
         { path: "/userhomepage", name: "user-home-page", component: UserHomePage },
         { path: "/exercises", name: "exercises-index", component: ExercisesIndex },
         { path: "/exercises/:id", name: "exercises-show", component: ExercisesShow },
-        { path: "/exercise_routines/new", name: "exercise-routines-new", component: ExerciseRoutinesNew },
+        { path: "/userweights/new", name: "user-weights-new", component: UserWeightsNew },
         { path: "/routines/new", name: "routines-new", component: RoutinesNew },
+        { path: "/appointments/new", name: "appointments-new", component: AppointmentsNew },
         { path: "/routines/:id", name: "routines-show", component: RoutinesShow },
         { path: "/routines", name: "routines", component: Routines },
         { path: "/products", name: "products", component: Products },

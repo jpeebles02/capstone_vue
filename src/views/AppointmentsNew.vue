@@ -1,11 +1,11 @@
 <template>
-  <div class="routinesnew">
+  <div class="appointmentsnew">
     <!-- PAGE CONTENT
     ============================== -->
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <h3 class="header">Create a New Routine</h3>
+          <h3 class="header">Create a New Appointment</h3>
           <p>
             Below you can create a new routine. View the exercises and add them to your routine. You can choose a day of
             the week for each routine.
