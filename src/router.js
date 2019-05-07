@@ -14,10 +14,11 @@ import UserWeightsNew from "./views/UserWeightsNew.vue";
 import Routines from "./views/Routines.vue";
 import Products from "./views/Products.vue";
 import ProductsShow from "./views/ProductsShow.vue";
-import MealsShow from "./views/MealsShow.vue";
+import Appointments from "./views/Appointments.vue";
 import Meals from "./views/Meals.vue";
 import Schedules from "./views/Schedule.vue";
 import Carts from "./views/Carts.vue";
+import Notification from "./views/Notification.vue";
 
 
 Vue.use(Router);
@@ -40,9 +41,10 @@ export default new Router({
         { path: "/routines", name: "routines", component: Routines },
         { path: "/products", name: "products", component: Products },
         { path: "/products/1", name: "products-show", component: ProductsShow },
-        { path: "/meals/1", name: "meals-show", component: MealsShow },
+        { path: "/appointments", name: "appointments", component: Appointments },
         { path: "/meals", name: "meals", component: Meals },
         { path: "/schedules", name: "schedule", component: Schedules },
-        { path: "/carts", name: "cart", component: Carts }
+        { path: "/carts", name: "cart", component: Carts },
+        { path: "/notification", name: "notification", component: Notification }
     ]
 });

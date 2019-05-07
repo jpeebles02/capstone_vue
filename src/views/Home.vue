@@ -14,7 +14,7 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-sm-12 text-center">
-                        <h1 class="hero__h1">Welcome to healF</h1>
+                        <h1 class="hero__h1">Welcome to iFit</h1>
                         <div class="hero__action">
                           <a href="/userhomepage" class="btn btn-lg btn-primary">Your Home Page</a>
                         </div>
@@ -37,7 +37,7 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-sm-12 text-center">
-                        <h1 class="hero__h1">Welcome to healF</h1>
+                        <h1 class="hero__h1">Welcome to iFit</h1>
                         <div class="hero__action">
                           <a href="/exercises" class="btn btn-lg btn-primary">View Exercises</a>
                         </div>
@@ -60,7 +60,7 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-sm-12 text-center">
-                        <h1 class="hero__h1">Welcome to healF</h1>
+                        <h1 class="hero__h1">Welcome to iFit</h1>
                         <div class="hero__action">
                           <a href="/routines" class="btn btn-lg btn-primary">View Your Routines</a>
                         </div>

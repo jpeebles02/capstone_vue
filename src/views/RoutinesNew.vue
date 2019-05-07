@@ -19,7 +19,7 @@
                 <tr>
                   <th></th>
                   <th class="text-center">Routine Name</th>
-                  <th class="text-center">Day of Week</th>
+                  <th class="text-center">Intensity Level</th>
                 </tr>
               </thead>
               <tbody>
@@ -31,22 +31,19 @@
                   <td class="text-center">
                     <strong
                       ><select v-model="selected">
-                        <option selected> Sunday </option>
-                        <option> Monday </option>
-                        <option> Tuesday </option>
-                        <option> Wednesday </option>
-                        <option> Thursday </option>
-                        <option> Friday </option>
-                        <option> Saturday </option>
-                      </select></strong
-                    >
-                  </td>
+                        <option> very-light </option>
+                        <option> light </option>
+                        <option selected> intermediate </option>
+                        <option> high </option>
+                        <option> very-high </option>
+                      </select></strong>
+                    </td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td class="text-center" v-on:click="createPlan()">
-                    <a href="/routines" class="btn btn-primary">Create Routine</a>
-                  </td>
+                  <div class="text-center" >
+                    <button class="btn btn-primary" v-on:click="createPlan()">Create Routine</button>
+                  </div>
                 </tr>
               </tbody>
             </table>
@@ -61,6 +58,10 @@
 
 <script>
 var axios = require("axios");
+// register the plugin on vue
+import Toasted from 'vue-toasted';
+ 
+Vue.use(Toasted)
 
 export default {
   data: function() {
@@ -81,10 +82,14 @@ export default {
         name: this.routineName,
         day_of_week: this.selected
       };
+      let toast = Vue.toasted.show("You Created A Routine", { 
+         theme: "toasted-primary", 
+         position: "top-right", 
+         duration : 5000
+      });
       axios.post("/api/routines", params).then(response => {
         this.routines.push(response.data);
-        this.routineName = "";
-        this.selected = "";
+        this.$router.push("/routines");
       });
     }
   }

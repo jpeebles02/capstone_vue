@@ -53,7 +53,7 @@
             <span class="icon-bar"></span>  
           </button> 
           <!-- Brand name --> 
-          <a class="navbar-brand" href="/">healF</a>  
+          <a class="navbar-brand" href="/">iFit</a>  
         </div>  
         <div class="collapse navbar-collapse">  
           <!-- Navbar links --> 

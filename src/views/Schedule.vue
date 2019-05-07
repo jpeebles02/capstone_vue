@@ -58,7 +58,7 @@
                   <datepicker v-on:selected="highlightTo"></datepicker>
                 </tr>
                 <tr>
-                  highlighted: {{highlighted}}
+                  <!-- highlighted: {{highlighted}} -->
                   <th scope="row">Choose a Routine</th>
                   <select v-model="routineId">
                     <option selected>-select-</option>
