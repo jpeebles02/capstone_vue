@@ -1,34 +1,5 @@
 <template>
   <div class="userhomepage" style="min-height: 180vh;">
-   <div id="container"></div>
-    <input type="text" v-model="columnOne">
-
-    <thead>
-                <tr>
-                  <th></th>
-                  <th class="text-center">Your weight</th>
-                  <th class="text-center">Todays Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td></td>
-                  <td class="text-center">
-                    <strong><input type="text" v-model="userWeight"/></strong>
-                  </td>
-                  <td class="text-center">
-                    <strong><input type="text" v-model="userDate"/></strong>
-                  </td>
-                </tr>
-                <tr>
-
-                <tr>
-                  <td></td>
-                  <td class="text-center" v-on:click="createUserWeight()">
-                    <a href="/userhomepage" class="btn btn-primary">Add to Graph</a>
-                  </td>
-                </tr>
-              </tbody>
 
     <!-- / .container -->
     <div class="profile__header">
@@ -48,7 +19,7 @@
               <h3 class="profile__name">{{ user.name }}</h3>
               <!-- User status -->
               <p class="text-muted">
-                bio
+                <avatar :username="`${user.name}`"></avatar>
               </p>
             </div>
             <!-- / .profile__summary -->
@@ -82,7 +53,7 @@
               <a href="#personal-info" aria-controls="personal-info" role="tab" data-toggle="tab">Personal Info</a>
             </li>
             <li role="presentation">
-              <router-link to="/routines">My Routines</router-link>
+              <a href="#user-portfolio" aria-controls="user-portfolio" role="tab" data-toggle="tab">Portfolio</a>
             </li>
           </ul>
           <!-- Tab content -->
@@ -110,12 +81,15 @@
                     </tr>
                     <tr>
                       <th scope="row">Weight (lbs)</th>
-                      <td>{{ user.current_weight_in_pounds }}</td>
+                      <td><input type="text" v-model="user.current_weight"></td>
                     </tr>
                     <tr>
                       <th scope="row">Target Weight</th>
-                      <td>{{ user.target_weight }}</td>
+                      <td><input type="text" v-model="user.target_weight"></td>
                     </tr>
+                    <div>
+          <button v-on:click="updateUser(user)">Update Weight</button>
+        </div>
               
                   </tbody>
                 </table>
@@ -123,115 +97,69 @@
               <!-- / .table-responsive -->
             </div>
             <div role="tabpanel" class="tab-pane" id="user-portfolio">
-              <h3 class="header header_plain">User Portfolio</h3>
+              <h3 class="header header_plain">User data</h3>
               <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                  <div class="portfolio__item">
-                    <!-- Image -->
-                    <div class="portfolio__img">
-                      <a href="portfolio-item.html">
-                        <img src="img/general_1.jpg" alt="Portfolio Image" />
-                      </a>
-                    </div>
-                    <!-- Captions -->
-                    <div class="portfolio__caption">
-                      <h3 class="portfolio__title">Simple & Beautiful</h3>
-                      <div class="portfolio__intro">
-                        Morbi vulputate eget ipsum vel maximus. Morbi dictum blandit mattis.
-                      </div>
-                    </div>
-                  </div>
+                <div class="col-lg-12 col-md-12">
+                  <div id="container"></div>
+    <input type="text" v-model="columnOne">
+
+    <thead>
+      <tr>
+        <th></th>
+        <th class="text-center">Your weight</th>
+        <th class="text-center">Todays Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td class="text-center">
+          <strong><input type="text" v-model="userWeight"/></strong>
+        </td>
+        <td class="text-center">
+          <strong><input type="text" v-model="userDate"/></strong>
+        </td>
+      </tr>
+      <tr>
+
+        <tr>
+          <td></td>
+          <td class="text-center" v-on:click="createUserWeight()">
+            <a href="/userhomepage" class="btn btn-primary">Add to Graph</a>
+          </td>
+        </tr>
+      </tbody>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                  <div class="portfolio__item">
-                    <!-- Image -->
-                    <div class="portfolio__img">
-                      <a href="portfolio-item.html">
-                        <img src="img/general_2.jpg" alt="Portfolio Image" />
-                      </a>
-                    </div>
-                    <!-- Captions -->
-                    <div class="portfolio__caption">
-                      <h3 class="portfolio__title">Simple & Beautiful</h3>
-                      <div class="portfolio__intro">
-                        Morbi vulputate eget ipsum vel maximus. Morbi dictum blandit mattis.
-                      </div>
-                    </div>
-                  </div>
+                <div class="col-lg-12 col-md-12">
+                  <header class="container">
+    <h1>RPN Calculator</h1>
+    <small>Write your weight and height and click <em>calculate</em></small>
+  </header>
+  <main class="container">
+    
+      <div class="col-xs-12 form-group">
+        <label for="weight" class="col-xs-4 control-label">weight <em>(in lbs)</em></label>
+        <div class="col-xs-8"><input v-model="weight" id="weight" type="text" class="form-control"></div>
+      </div>
+      <div class="col-xs-12 form-group">
+        <label for="height" class="col-xs-4 control-label">height <em>(in inches)</em></label>
+        <div class="col-xs-8"><input v-model="height" id="height" type="text" class="form-control"></div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success btn-block" @click="calculate">Calculate</button>
+      </div>
+      <div class="result">
+      <span>And the result is...</span>
+      <em>{{result}}</em>
+    </div>
+  </main>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                  <div class="portfolio__item">
-                    <!-- Image -->
-                    <div class="portfolio__img">
-                      <a href="portfolio-item.html">
-                        <img src="img/general_3.jpg" alt="Portfolio Image" />
-                      </a>
-                    </div>
-                    <!-- Captions -->
-                    <div class="portfolio__caption">
-                      <h3 class="portfolio__title">Simple & Beautiful</h3>
-                      <div class="portfolio__intro">
-                        Morbi vulputate eget ipsum vel maximus. Morbi dictum blandit mattis.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                  <div class="portfolio__item">
-                    <!-- Image -->
-                    <div class="portfolio__img">
-                      <a href="portfolio-item.html">
-                        <img src="img/general_4.jpg" alt="Portfolio Image" />
-                      </a>
-                    </div>
-                    <!-- Captions -->
-                    <div class="portfolio__caption">
-                      <h3 class="portfolio__title">Simple & Beautiful</h3>
-                      <div class="portfolio__intro">
-                        Morbi vulputate eget ipsum vel maximus. Morbi dictum blandit mattis.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                  <div class="portfolio__item">
-                    <!-- Image -->
-                    <div class="portfolio__img">
-                      <a href="portfolio-item.html">
-                        <img src="img/general_5.jpg" alt="Portfolio Image" />
-                      </a>
-                    </div>
-                    <!-- Captions -->
-                    <div class="portfolio__caption">
-                      <h3 class="portfolio__title">Simple & Beautiful</h3>
-                      <div class="portfolio__intro">
-                        Morbi vulputate eget ipsum vel maximus. Morbi dictum blandit mattis.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                  <div class="portfolio__item">
-                    <!-- Image -->
-                    <div class="portfolio__img">
-                      <a href="portfolio-item.html">
-                        <img src="img/general_6.jpg" alt="Portfolio Image" />
-                      </a>
-                    </div>
-                    <!-- Captions -->
-                    <div class="portfolio__caption">
-                      <h3 class="portfolio__title">Simple & Beautiful</h3>
-                      <div class="portfolio__intro">
-                        Morbi vulputate eget ipsum vel maximus. Morbi dictum blandit mattis.
-                      </div>
-                    </div>
-                  </div>
-                </div>
+               
               </div>
               <!-- / .row -->
               <div class="row">
                 <div class="col-xs-12 text-right">
-                  <a href="#" class="btn btn-default">View Full Portfolio</a>
+                  <a href="/carts" class="btn btn-default">View Full BMI Chart</a>
                 </div>
               </div>
             </div>
@@ -268,6 +196,8 @@ import Vue from "vue";
 import HighchartsVue from 'highcharts-vue';
 import {Chart} from 'highcharts-vue'
 import moment from "moment";
+import Avatar from 'vue-avatar'
+
 
 Vue.use(HighchartsVue);
 
@@ -275,8 +205,14 @@ var axios = require("axios");
 /* global mapboxgl */
 /* global mapboxSdk */
 export default {
+  components: {
+    Avatar
+  },
   data: function() {
     return {
+      weight: '',
+      height: '',
+      result: 'Click "Calculate"',
       userWeight: "",
       userDate: "",
       routineId: "",
@@ -343,6 +279,10 @@ export default {
     console.log("My jwt is", this.jwt);
 
     axios.get("/api/users/current_user").then(response => {
+      this.user = response.data;
+    });
+
+    axios.get("/api/users/current_user").then(response => {
       this.userweights = response.data.user_weights;
 
       this.userweights.forEach((weight) => {
@@ -350,7 +290,7 @@ export default {
       });
 
       this.userweights.forEach((weight) => {
-        this.weights.push(weight['amount']['amount']);
+        this.weights.push(weight['weight']);
       });
 
       this.setupChart();
@@ -444,7 +384,7 @@ export default {
     },
     createUserWeight: function() {
         var params = {
-          weight_id: this.userWeight,
+          current_weight: this.userWeight,
           date: this.userDate
         };
 
@@ -452,6 +392,22 @@ export default {
         this.userweights.push(response.data);
         this.userWeight = "";
         this.userDate = "";
+        });
+    },
+    calculate() {
+      let weight = (this.weight)
+      let height = (this.height)
+      this.result = (weight / (height * height)) * 703
+    },
+    updateUser: function(user) {
+      var params = {
+        target_weight: user.target_weight,
+        current_weight: user.current_weight
+      };
+      axios
+        .patch("/api/users/" + user.id, params)
+        .then(response => {
+          this.currentUser = {};
         });
     }
   },

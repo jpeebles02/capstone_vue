@@ -48,29 +48,19 @@
                       >Sort by Category</a
                     >
                   </li>
-                  <li role="presentation">
-                    <a
-                      href="#"
-                      role="tab"
-                      data-toggle="tab"
-                      data-filter=".filter_photorealism"
-                      v-on:click="muscleOne()"
-                      >Sort by Muscle Group</a
-                    >
-                  </li>
                 </ul>
               </div>
               <!-- Columns -->
               <div class="col-sm-4 col-md-3">
                 <ul class="nav nav-tabs nav-justified columns__nav hidden-xs" role="tablist">
                   <li role="presentation">
-                    <a href="" role="tab" data-toggle="tab" data-grid="col-sm-6"> <i class="fa fa-columns"></i> 2</a>
+                    <a href="/exercises" role="tab" data-toggle="tab" data-grid="col-sm-6"> <i class="fa fa-columns"></i> 2</a>
                   </li>
                   <li role="presentation" class="active">
-                    <a href="#" role="tab" data-toggle="tab" data-grid="col-sm-4"> <i class="fa fa-columns"></i> 3</a>
+                    <a href="/exercises" role="tab" data-toggle="tab" data-grid="col-sm-4"> <i class="fa fa-columns"></i> 3</a>
                   </li>
                   <li role="presentation">
-                    <a href="#" role="tab" data-toggle="tab" data-grid="col-sm-4 col-md-3">
+                    <a href="/exercises" role="tab" data-toggle="tab" data-grid="col-sm-4 col-md-3">
                       <i class="fa fa-columns"></i> 4</a
                     >
                   </li>

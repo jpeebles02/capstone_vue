@@ -66,6 +66,9 @@ Vue.use(Toasted)
 export default {
   data: function() {
     return {
+      weight: '',
+      height: '',
+      result: 'Click "Calculate"',
       routines: [],
       routineName: "",
       selected: ""
@@ -91,6 +94,11 @@ export default {
         this.routines.push(response.data);
         this.$router.push("/routines");
       });
+    },
+    calculate() {
+      let weight = (this.weight)
+      let height = (this.height)
+      this.result = (weight / (height * height)) * 703
     }
   }
 };

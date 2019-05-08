@@ -51,14 +51,10 @@
                 </tr>
                 <tr>
                   <th scope="row">Date</th>
-                  <datepicker v-on:selected="highlightFrom"></datepicker>
+                  <datepicker placeholder="Select Date"></datepicker>
                 </tr>
                 <tr>
-                  <th scope="row">Date</th>
-                  <datepicker v-on:selected="highlightTo"></datepicker>
-                </tr>
-                <tr>
-                  <!-- highlighted: {{highlighted}} -->
+                 
                   <th scope="row">Choose a Routine</th>
                   <select v-model="routineId">
                     <option selected>-select-</option>
@@ -68,7 +64,7 @@
                   </select>
                 </tr>
               </tbody>
-              <a href="#" class="btn btn-lg btn-primary">Book Appointment</a>
+              <button class="btn btn-primary" v-on:click="bookAppointment()">Book Appointment</button>
             </table>
           </div>
           <!-- / .table-responsive -->
@@ -102,6 +98,9 @@ var axios = require("axios");
 import Datepicker from "vuejs-datepicker/dist/vuejs-datepicker.esm.js";
 import * as lang from "vuejs-datepicker/src/locale";
 import moment from "moment";
+import Toasted from 'vue-toasted';
+ 
+Vue.use(Toasted)
 
 
 export default {
@@ -121,7 +120,14 @@ export default {
       //     }
       //   }
       // },
-      highlighted: {},
+      highlighted: {
+          customPredictor: function (date) {
+            // highlights every day of a month which is a multiple of 4
+            if (date.getDate() % 4 === 0) {
+              return true
+            }
+          }
+        },
     };
   },
   created: function() {
@@ -131,26 +137,35 @@ export default {
 
   },
   methods: {
+    bookAppointment: function() {
+      let toast = Vue.toasted.show("Your appointment is booked", { 
+         theme: "toasted-primary", 
+         position: "top-right", 
+         duration : 5000
+      });
+    },
     highlightTo(val) {
       if (typeof this.highlighted.to === "undefined") {
         this.highlighted = {
-          to: null,
+          to: this.highlighted.from,
           daysOfMonth: this.highlighted.daysOfMonth,
           from: this.highlighted.from
         };
       }
       this.highlighted.to = val;
     },
-    highlightFrom(val) {
-      if (typeof this.highlighted.from === "undefined") {
-        this.highlighted = {
-          to: this.highlighted.to,
-          daysOfMonth: this.highlighted.daysOfMonth,
-          from: null
-        };
-      }
-      this.highlighted.from = val;
-    }
+    
+
+    // highlightFrom(val) {
+    //   if (typeof this.highlighted.from === "undefined") {
+    //     this.highlighted = {
+    //       to: this.highlighted.to,
+    //       daysOfMonth: this.highlighted.daysOfMonth,
+    //       from: null
+    //     };
+    //   }
+    //   this.highlighted.from = val;
+    // }
     // setHighlightedDays(elem) {
     //   if (elem.target.value === "undefined") {
     //     return;

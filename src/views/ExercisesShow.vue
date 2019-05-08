@@ -43,11 +43,11 @@
                 </tr>
                 <tr>
                   <th scope="row">Muscle Group</th>
-                  <td>{{ muscle_group.name }}</td>
+                  <td>{{ this.muscle_group.name }}</td>
                 </tr>
                 <tr>
                   <th scope="row">Category</th>
-                  <td>{{ category.name }}</td>
+                  <td>{{ this.category.name}}</td>
                 </tr>
               </tbody>
             </table>
@@ -78,7 +78,7 @@
 
                 <tr>
                   <th scope="row">Add to Routine</th>
-                  <td v-on:click="createRoutine()"><a href="/routines" class="btn btn-primary">Add to Routine</a></td>
+                  <button class="btn btn-primary" v-on:click="createRoutine()">Add to Routine</button>
                 </tr>
               </tbody>
             </table>
@@ -435,12 +435,9 @@
 
 <script>
 import axios from "axios";
-import Vue from "vue";
-import BootstrapVue from "bootstrap-vue";
-import BDropdown from "bootstrap-vue/es/components/dropdown/dropdown";
-Vue.component("b-dropdown", BDropdown);
-
-Vue.use(BootstrapVue);
+import Toasted from 'vue-toasted';
+ 
+Vue.use(Toasted);
 
 export default {
   data: function() {
@@ -451,6 +448,7 @@ export default {
       category: [],
       exerciseId: "",
       routineId: "",
+      categoryId: "",
       amount: ""
     };
   },
@@ -459,6 +457,18 @@ export default {
       this.exercise = response.data;
       this.exerciseId = this.exercise.id;
       console.log(response);
+    }).then(() => {
+      axios.get("/api/muscle_groups/" + this.exercise.muscle_group_id).then(response => {
+        this.muscle_group = response.data;
+        this.muscle_groupId = this.muscle_group.id;
+        console.log(this.muscle_group);
+      });
+
+      axios.get("/api/categories/" + this.exercise.category_id).then(response => {
+        this.category = response.data;
+        this.categoryId = this.category.id;
+        console.log(this.category);
+      });
     });
     axios.get("/api/exercise_routines").then(response => {
       this.exerciseroutines = response.data;
@@ -466,29 +476,24 @@ export default {
     axios.get("/api/routines").then(response => {
       this.routines = response.data;
     });
-    axios.get("/api/muscle_groups/" + this.$route.params.id).then(response => {
-      this.muscle_group = response.data;
-      // this.muscle_groupId = this.muscle_group.id;
-      console.log(this.muscle_group);
-    });
-    axios.get("/api/categories/" + this.$route.params.id).then(response => {
-      this.category = response.data;
-      // this.categoryId = this.category.id;
-      console.log(this.category);
-    });
+    
   },
   methods: {
     createRoutine: function() {
       var params = {
         exercise_id: this.exerciseId,
         routine_id: this.routineId,
+        category_id: this.categoryId,
         amount: this.amount
       };
+      let toast = Vue.toasted.show("Added workout to a rouutine", { 
+         theme: "toasted-primary", 
+         position: "top-right", 
+         duration : 5000
+      });
       axios.post("/api/exercise_routines", params).then(response => {
         this.exerciseroutines.push(response.data);
-        this.exerciseId = "";
-        this.routineId = "";
-        this.amount = "";
+        this.$router.push("/routines");
       });
     }
   }

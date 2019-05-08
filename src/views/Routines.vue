@@ -18,6 +18,7 @@
     <!-- PAGE CONTENT
     ============================== -->
     <div class="container">
+
       <div class="row">
         <div class="col-xs-12">
           <h3 class="header">These are all of your routines</h3>
@@ -49,45 +50,6 @@
             </div>
           </div>
         </div>
-        <div class="col-6">
-      <h3>Draggable {{ draggingInfo }}</h3>
-
-      <draggable
-        :routine="routine"
-        :disabled="!enabled"
-        class="chocolate"
-        ghost-class="ghost"
-        @start="dragging = true"
-        @end="dragging = false"
-      >
-        <div
-          class="chocolate-item" v-for="routine in routines" :key="routine.name">
-         <div class="col-xs-12 col-sm-6 col-md-3">
-            <!-- Pricing item #1 -->
-            <div class="pricing__item">
-              <!-- Pricing header -->
-              <div class="pricing__header">
-                <div class="pricing__title">{{ routine.name }}</div>
-                <div class="pricing__price">{{ routine.day_of_week }}</div>
-              </div>
-              <!-- Pricing body -->
-              <div class="pricing__body">
-                <ul class="pricing__list">
-                  <div v-for="exercise in routine.exercises" v-bind:key="exercise.id">
-                    <p>{{ exercise.name }}</p>
-                  </div>
-                </ul>
-                <div class="pricing__btn">
-                  <router-link v-bind:to="`/routines/${routine.id}`">More info</router-link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </draggable>
-    </div>
-
-    <rawDisplayer class="col-3" :value="routines" title="List" />
   </div>
       </div>
 
@@ -99,24 +61,16 @@
 
 <script>
 import axios from "axios";
-import draggable from "vuedraggable";
+import draggable from 'vuedraggable';
+
 export default {
-  name: "simple",
-  display: "Simple",
-  order: 0,
   components: {
     draggable
   },
   data: function() {
     return {
       routines: [],
-      enabled: true,
-      list: [
-        { name: '${routine.name}', id: 0 },
-        { name: '${routine.name}', id: 1 },
-        { name: '${routine.name}', id: 2 }
-      ],
-      dragging: false
+      enabled: true
     };
   },
   created: function() {
@@ -129,19 +83,6 @@ export default {
       this.exerciseroutines = response.data;
     });
   },
-  computed: {
-    draggingInfo() {
-      return this.dragging ? "under drag" : "";
-    }
-  },
-  methods: {
-    add: function() {
-      this.list.push({ name: "Juan " + id, id: id++ });
-    },
-    replace: function() {
-      this.list = [{ name: "Edgard", id: id++ }];
-    }
-  }
 };
 </script>
 
