@@ -51,7 +51,7 @@
                 </ul>
               </div>
               <!-- Columns -->
-              <div class="col-sm-4 col-md-3">
+              <!-- <div class="col-sm-4 col-md-3">
                 <ul class="nav nav-tabs nav-justified columns__nav hidden-xs" role="tablist">
                   <li role="presentation">
                     <a href="/exercises" role="tab" data-toggle="tab" data-grid="col-sm-6"> <i class="fa fa-columns"></i> 2</a>
@@ -65,7 +65,7 @@
                     >
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
           </div>
           <!-- / .portfolio__nav -->

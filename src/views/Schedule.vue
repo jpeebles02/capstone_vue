@@ -50,6 +50,19 @@
                   </td>
                 </tr>
                 <tr>
+                  <th scope="row">Choose a Personal Trainer</th>
+                  <td>
+                    <strong
+                      ><select v-model="selected">
+                        <option>Janet </option>
+                        <option> Jacob </option>
+                        <option> Carl </option>
+                      
+                      </select></strong
+                    >
+                  </td>
+                </tr>
+                <tr>
                   <th scope="row">Date</th>
                   <datepicker placeholder="Select Date"></datepicker>
                 </tr>
@@ -138,7 +151,7 @@ export default {
   },
   methods: {
     bookAppointment: function() {
-      let toast = Vue.toasted.show("Your appointment is booked", { 
+      let toast = Vue.toasted.show("Your appointment is booked, a trainer will contact you shortly.", { 
          theme: "toasted-primary", 
          position: "top-right", 
          duration : 5000

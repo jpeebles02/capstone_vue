@@ -43,6 +43,10 @@
                 </tr>
                 <tr>
                   <th scope="row">Muscle Group</th>
+                  <td><img v-bind:src="this.muscle_group.image_url" v-bind:alt="this.muscle_group.name" class="img-responsive" /></td>
+                </tr>
+                <tr>
+                  <th scope="row">Muscle Group</th>
                   <td>{{ this.muscle_group.name }}</td>
                 </tr>
                 <tr>
@@ -73,7 +77,7 @@
                 </tr>
                 <tr>
                   <th scope="row">How many reps are you doing?</th>
-                  <td>{{ this.exercise.amount }}<input type="text" v-model="amount" /></td>
+                  <td><input type="text" v-model="amount" /></td>
                 </tr>
 
                 <tr>
@@ -170,7 +174,7 @@
         <!-- New review -->
         <div class="comment comment_new">
           <div class="comment__author_img">
-            <img class="img-responsive" alt="..." src="img/photo_4.jpg" />
+            <img class="img-responsive" alt="..." src="https://www.biography.com/.image/t_share/MTE4MDAzNDEwNzg5ODI4MTEw/barack-obama-12782369-1-402.jpg" />
           </div>
           <div class="comment__content">
             <ul class="rating_stars rating-stars__new">
@@ -182,7 +186,7 @@
             </ul>
             <form>
               <div class="form-group">
-                <label for="comment-new__textarea" class="sr-only">Enter your review</label>
+                <label for="comment-new__textarea" class="sr-only">How did you like this workout?</label>
                 <textarea
                   class="form-control"
                   rows="2"
@@ -205,11 +209,11 @@
         <!-- All comments -->
         <div class="comment">
           <div class="comment__author_img">
-            <img src="img/photo_1.jpg" alt="..." class="img-responsive" />
+            <img src="https://usatftw.files.wordpress.com/2018/12/ap-panthers-buccaneers-football.jpg?w=1000&h=600&crop=1" />
           </div>
           <div class="comment__content">
-            <div class="comment__author_name">John Doe</div>
-            <time datetime="2015-01-30" class="comment__date">February 02, 2015</time>
+            <div class="comment__author_name">John</div>
+            <time datetime="2015-01-30" class="comment__date">May 03, 2019</time>
             <ul class="rating_stars">
               <li><i class="fa fa-star"></i></li>
               <li><i class="fa fa-star"></i></li>
@@ -218,9 +222,7 @@
               <li><i class="fa fa-star"></i></li>
             </ul>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque gravida, est non tempus pharetra,
-              erat velit convallis diam, quis blandit neque nulla a nulla. Quisque fringilla lacinia erat, at maximus
-              erat bibendum quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              This workout was great!
             </p>
             <div class="btn-group pull-right" role="group" aria-label="comment__actions">
               <a href="#" class="btn btn-default btn-xs"><i class="fa fa-times"></i> Remove</a>
@@ -233,11 +235,11 @@
         <!-- / .comment -->
         <div class="comment">
           <div class="comment__author_img">
-            <img src="img/photo_2.jpg" alt="..." class="img-responsive" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mark_Wahlberg_2017.jpg/220px-Mark_Wahlberg_2017.jpg" alt="..." class="img-responsive" />
           </div>
           <div class="comment__content">
-            <div class="comment__author_name">Judy Doe</div>
-            <time datetime="2015-01-30" class="comment__date">February 02, 2015</time>
+            <div class="comment__author_name">Corey</div>
+            <time datetime="2015-01-30" class="comment__date">April 14, 2019</time>
             <ul class="rating_stars">
               <li><i class="fa fa-star"></i></li>
               <li><i class="fa fa-star"></i></li>
@@ -246,9 +248,7 @@
               <li><i class="fa fa-star-o"></i></li>
             </ul>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque gravida, est non tempus pharetra,
-              erat velit convallis diam, quis blandit neque nulla a nulla. Quisque fringilla lacinia erat, at maximus
-              erat bibendum quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Good workout!
             </p>
             <div class="btn-group pull-right" role="group" aria-label="comment__actions">
               <a href="#" class="btn btn-default btn-xs"><i class="fa fa-times"></i> Remove</a>
@@ -261,11 +261,11 @@
         <!-- / .comment -->
         <div class="comment">
           <div class="comment__author_img">
-            <img src="img/photo_3.jpg" alt="..." class="img-responsive" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Terry_Crews_%2835748056950%29.jpg/250px-Terry_Crews_%2835748056950%29.jpg" alt="..." class="img-responsive" />
           </div>
           <div class="comment__content">
-            <div class="comment__author_name">Richard Roe</div>
-            <time datetime="2015-01-30" class="comment__date">February 02, 2015</time>
+            <div class="comment__author_name">Richard</div>
+            <time datetime="2015-01-30" class="comment__date">February 02, 2019</time>
             <ul class="rating_stars">
               <li><i class="fa fa-star"></i></li>
               <li><i class="fa fa-star"></i></li>
@@ -274,9 +274,7 @@
               <li><i class="fa fa-star-half-o"></i></li>
             </ul>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque gravida, est non tempus pharetra,
-              erat velit convallis diam, quis blandit neque nulla a nulla. Quisque fringilla lacinia erat, at maximus
-              erat bibendum quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              I like this one alot
             </p>
             <div class="btn-group pull-right" role="group" aria-label="comment__actions">
               <a href="#" class="btn btn-default btn-xs"><i class="fa fa-times"></i> Remove</a>
@@ -290,12 +288,8 @@
       </div>
       <div class="col-sm-4">
         <!-- Recommended & Popular -->
-        <h3 class="header header_plain">Top Products</h3>
+        <h3 class="header header_plain">Top Exercises</h3>
         <ul class="nav nav-tabs nav-justified" role="tablist">
-          <li role="presentation" class="active">
-            <a href="#shop-tab_recommended" aria-controls="shop-tab_recommended" role="tab" data-toggle="tab"
-              >Recommended</a
-            >
           </li>
           <li role="presentation">
             <a href="#shop-tab_popular" aria-controls="shop-tab_popular" role="tab" data-toggle="tab">Popular</a>
@@ -305,10 +299,10 @@
           <!-- Recommended -->
           <div role="tabpanel" class="tab-pane active" id="shop-tab_recommended">
             <div class="list-group shop-tab__list">
-              <a href="#" class="list-group-item">
-                <img class="img-responsive list-group-item__img" src="img/product_1.jpg" alt="..." />
+              <a href="/exercises/1" class="list-group-item">
+                <img class="img-responsive list-group-item__img" src="http://www.shapesense.com/assets/img/exercise-videos/index-pictures/chest/bench-press.jpg" alt="..." />
                 <div class="list-group-item__content">
-                  Lorem ipsum dolor sit amet
+                  Bench Press
                   <ul class="rating_stars">
                     <li><i class="fa fa-star"></i></li>
                     <li><i class="fa fa-star"></i></li>
@@ -319,10 +313,10 @@
                 </div>
                 <div class="clearfix"></div>
               </a>
-              <a href="#" class="list-group-item">
-                <img class="img-responsive list-group-item__img" src="img/product_2.jpg" alt="..." />
+              <a href="/exercises/11" class="list-group-item">
+                <img class="img-responsive list-group-item__img" src="http://www.shapesense.com/assets/img/exercise-videos/index-pictures/triceps/lying-tricep-extension-skull-crusher.jpg" alt="..." />
                 <div class="list-group-item__content">
-                  Cras hendrerit tellus porttitor elementum
+                  Skull Crushers
                   <ul class="rating_stars">
                     <li><i class="fa fa-star"></i></li>
                     <li><i class="fa fa-star"></i></li>
@@ -333,10 +327,10 @@
                 </div>
                 <div class="clearfix"></div>
               </a>
-              <a href="#" class="list-group-item">
-                <img class="img-responsive list-group-item__img" src="img/product_3.jpg" alt="..." />
+              <a href="/exercises/27" class="list-group-item">
+                <img class="img-responsive list-group-item__img" src="https://cdn11.bigcommerce.com/s-hoa4e/images/stencil/500x500/products/686/4333/Spirit-TCR-Nylon-Jump-Rope-3__27107.1540333663.jpg?c=2" alt="..." />
                 <div class="list-group-item__content">
-                  Sed ultrices euismod hendrerit nunc augue
+                  Jumping Rope
                   <ul class="rating_stars">
                     <li><i class="fa fa-star"></i></li>
                     <li><i class="fa fa-star"></i></li>
@@ -347,10 +341,10 @@
                 </div>
                 <div class="clearfix"></div>
               </a>
-              <a href="#" class="list-group-item">
-                <img class="img-responsive list-group-item__img" src="img/product_4.jpg" alt="..." />
+              <a href="/exercises/17" class="list-group-item">
+                <img class="img-responsive list-group-item__img" src="http://www.shapesense.com/assets/img/exercise-videos/index-pictures/lats/chin-up.jpg" alt="..." />
                 <div class="list-group-item__content">
-                  Maecenas venenatis sodales sem
+                  Chin Ups
                   <ul class="rating_stars">
                     <li><i class="fa fa-star"></i></li>
                     <li><i class="fa fa-star"></i></li>

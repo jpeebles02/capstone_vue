@@ -53,138 +53,129 @@
               <a href="#personal-info" aria-controls="personal-info" role="tab" data-toggle="tab">Personal Info</a>
             </li>
             <li role="presentation">
-              <a href="#user-portfolio" aria-controls="user-portfolio" role="tab" data-toggle="tab">Portfolio</a>
+              <a href="#user-portfolio" aria-controls="user-portfolio" role="tab" data-toggle="tab">Weight Tracker</a>
             </li>
           </ul>
           <!-- Tab content -->
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="personal-info">
-              <h3 class="header header_plain">Personal Info</h3>
-              <div class="table-responsive">
-                <table class="table">
-                  <tbody>
-                    <tr>
-                      <th scope="row">Email</th>
-                      <td>{{ user.email }}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Phone Number</th>
-                      <td>{{ user.phone_number }}r</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Birth Date</th>
-                      <td>{{ user.birth_date }}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Height (in)</th>
-                      <td>{{ user.height_in_inches }}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Weight (lbs)</th>
-                      <td><input type="text" v-model="user.current_weight"></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Target Weight</th>
-                      <td><input type="text" v-model="user.target_weight"></td>
-                    </tr>
-                    <div>
-          <button v-on:click="updateUser(user)">Update Weight</button>
-        </div>
-              
-                  </tbody>
-                </table>
-              </div>
-              <!-- / .table-responsive -->
-            </div>
-            <div role="tabpanel" class="tab-pane" id="user-portfolio">
-              <h3 class="header header_plain">User data</h3>
-              <div class="row">
-                <div class="col-lg-12 col-md-12">
-                  <div id="container"></div>
-    <input type="text" v-model="columnOne">
+              <div role="tabpanel" class="tab-pane active" id="personal-info">
+                <h3 class="header header_plain">Personal Info</h3>
+                <div class="table-responsive">
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <th scope="row">Email</th>
+                        <td>{{ user.email }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Phone Number</th>
+                        <td>{{ user.phone_number }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Birth Date</th>
+                        <td>{{ user.birth_date }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Height (in)</th>
+                        <td>{{ user.height_in_inches }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Weight (lbs)</th>
+                        <td><input type="text" v-model="user.current_weight"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Target Weight</th>
+                        <td><input type="text" v-model="user.target_weight"></td>
+                      </tr>
+                      <div>
+                        <button v-on:click="updateUser(user)">Update Weight</button>
+                      </div>
 
-    <thead>
-      <tr>
-        <th></th>
-        <th class="text-center">Your weight</th>
-        <th class="text-center">Todays Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td class="text-center">
-          <strong><input type="text" v-model="userWeight"/></strong>
-        </td>
-        <td class="text-center">
-          <strong><input type="text" v-model="userDate"/></strong>
-        </td>
-      </tr>
-      <tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- / .table-responsive -->
+              </div>
+              <div role="tabpanel" class="tab-pane" id="user-portfolio">
+                <h3 class="header header_plain">User data</h3>
+                <div class="row">
+                  <div class="col-lg-12 col-md-12">
+                    <div id="container"></div>
+                  <!--   <input type="text" v-model="columnOne"> -->
 
-        <tr>
-          <td></td>
-          <td class="text-center" v-on:click="createUserWeight()">
-            <a href="/userhomepage" class="btn btn-primary">Add to Graph</a>
-          </td>
-        </tr>
-      </tbody>
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th class="text-center">Your weight</th>
+                        <th class="text-center">Todays Date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td></td>
+                        <td class="text-center">
+                          <strong><input type="text" v-model="userWeight"/></strong>
+                        </td>
+                        <td class="text-center">
+                          <strong><input type="text" v-model="userDate"/></strong>
+                        </td>
+                      </tr>
+                      <tr>
+
+                        <tr>
+                          <td></td>
+                          <td class="text-center" v-on:click="createUserWeight()">
+                            <a href="/userhomepage" class="btn btn-primary">Add to Graph</a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                      <header class="container">
+                        <h1>BPI Calculator</h1>
+                      </header>
+                      <main class="container">
+
+                        <div class="col-lg-6 col-md-6 form-group">
+                          <label for="weight" class="col-xs-4 control-label">weight <em>(in lbs)</em></label>
+                          <div class="col-lg-6 col-md-6"><input v-model="weight" id="weight" type="text" class="form-control"></div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 form-group">
+                          <label for="height" class="col-xs-4 control-label">height <em>(in inches)</em></label>
+                          <div class="col-lg-6 col-md-6"><input v-model="height" id="height" type="text" class="form-control"></div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 form-group">
+                          <button class="btn btn-success btn-block" @click="calculate">Calculate</button>
+                        </div>
+                        <div class="result">
+                          <em>{{result}}</em>
+                        </div>
+                      </main>
+                    </div>
+
+                  </div>
+                  <!-- / .row -->
+                  <div class="row">
+                    <div class="col-xs-12 text-right">
+                      <a href="/carts" class="btn btn-default">View Full BMI Chart</a>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-lg-12 col-md-12">
-                  <header class="container">
-    <h1>RPN Calculator</h1>
-    <small>Write your weight and height and click <em>calculate</em></small>
-  </header>
-  <main class="container">
-    
-      <div class="col-xs-12 form-group">
-        <label for="weight" class="col-xs-4 control-label">weight <em>(in lbs)</em></label>
-        <div class="col-xs-8"><input v-model="weight" id="weight" type="text" class="form-control"></div>
-      </div>
-      <div class="col-xs-12 form-group">
-        <label for="height" class="col-xs-4 control-label">height <em>(in inches)</em></label>
-        <div class="col-xs-8"><input v-model="height" id="height" type="text" class="form-control"></div>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-success btn-block" @click="calculate">Calculate</button>
-      </div>
-      <div class="result">
-      <span>And the result is...</span>
-      <em>{{result}}</em>
-    </div>
-  </main>
-                </div>
-               
+
               </div>
-              <!-- / .row -->
-              <div class="row">
-                <div class="col-xs-12 text-right">
-                  <a href="/carts" class="btn btn-default">View Full BMI Chart</a>
-                </div>
-              </div>
+              <!-- / .tab-content -->
             </div>
           </div>
-          <!-- / .tab-content -->
+          <!-- / .row -->
         </div>
-      </div>
-      <!-- / .row -->
-    </div>
-    <!-- / .container -->
+        <!-- / .container -->
 
-    <router-view v-on:changeJwt="setJwt()" />
-    <h2>Local Gyms</h2>
-    <div id="map"></div>
-  </div>
-</template>
+        <router-view v-on:changeJwt="setJwt()" />
+
+      </div>
+    </template>
 
 <style>
-#map {
-  position: absolute;
-  /*left: 300px;
-  right: 200px;*/
-  width: 50%;
-  height: 20%;
-}
 /*body {
   margin: 0;
   padding: 0;
@@ -202,8 +193,6 @@ import Avatar from 'vue-avatar'
 Vue.use(HighchartsVue);
 
 var axios = require("axios");
-/* global mapboxgl */
-/* global mapboxSdk */
 export default {
   components: {
     Avatar
@@ -220,24 +209,6 @@ export default {
       format: "MM/DD/YYYY hh:mm",
       user: [],
       jwt: null,
-      places: [
-        {
-          lat: 41.8937,
-          long: -87.6374,
-          description: "UFC Gym in River North"
-        },
-        {
-          lat: 41.8713,
-          long: -87.6272,
-          description: "Xsport Fitness on south State street"
-        },
-        {
-          lat: 41.8884,
-          long: -87.6354,
-          description:
-            "Members-only gym in the Merchandise Mart offering exercise equipment, classes & personal training"
-        }
-      ],
       chartOptions: {
         series: [{
         data: [, 70, 50, 30, 10],
@@ -252,12 +223,12 @@ export default {
         xAxis: {
             categories: [],
             title: {
-            text: "weight"
+            text: "Dates"
           }
         },
         yAxis: {
           title: {
-            text: "weight"
+            text: "Weight"
           }
 
         },
@@ -296,7 +267,6 @@ export default {
       this.setupChart();
 
     });
-    this.setupMap();
   },
   methods: {
     setJwt: function() {
@@ -306,89 +276,20 @@ export default {
       this.options.xAxis.categories = this.dates;
       this.options.series[0].data = this.weights;
 
-      console.log("CHART DATA", this.options.series.data);
+      console.log("CHART DATA", this.options.series[0].data);
       console.log("CHART CATEGORIES", this.options.xAxis.categories);
 
       this.chart = Highcharts.chart('container', this.options);
-      this.columnOne = this.options.series[0].data[0];
+      this.columnOne = this.options.series[0].data[5];
       console.log('graph rendered');
-    },
-    setupMap: function() {
-      mapboxgl.accessToken =
-        "pk.eyJ1IjoianBlZWJsZXMyIiwiYSI6ImNqdWRhc2h5cTB0NzI0M25xZWZ6cThtcTYifQ.rFfoxhSgmZHr66vMqgnxfQ";
-
-      var map = new mapboxgl.Map({
-        container: "map", // container id
-        style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
-        center: [-87.6348, 41.8921], // starting position [lng, lat]
-        zoom: 12,
-        pitch: 45,
-        bearing: -17.6
-      });
-      map.addControl(
-        new MapboxDirections({
-          accessToken: mapboxgl.accessToken
-        }),
-        "top-left"
-      );
-      map.addControl(
-        new mapboxgl.GeolocateControl({
-          positionOptions: {
-            enableHighAccuracy: true
-          },
-          trackUserLocation: true
-        })
-      );
-
-      this.places.forEach(function(place) {
-        var popup = new mapboxgl.Popup({ offset: 25 }).setText(place.description);
-        var marker = new mapboxgl.Marker()
-          .setLngLat([place.long, place.lat])
-          .setPopup(popup) // sets a popup on this marker
-          .addTo(map);
-      });
-
-      map.on("load", function() {
-        // Insert the layer beneath any symbol layer.
-        var layers = map.getStyle().layers;
-
-        var labelLayerId;
-        for (var i = 0; i < layers.length; i++) {
-          if (layers[i].type === "symbol" && layers[i].layout["text-field"]) {
-            labelLayerId = layers[i].id;
-            break;
-          }
-        }
-
-        map.addLayer(
-          {
-            id: "3d-buildings",
-            source: "composite",
-            "source-layer": "building",
-            filter: ["==", "extrude", "true"],
-            type: "fill-extrusion",
-            minzoom: 15,
-            paint: {
-              "fill-extrusion-color": "#aaa",
-
-              // use an 'interpolate' expression to add a smooth transition effect to the
-              // buildings as the user zooms in
-              "fill-extrusion-height": ["interpolate", ["linear"], ["zoom"], 15, 0, 15.05, ["get", "height"]],
-              "fill-extrusion-base": ["interpolate", ["linear"], ["zoom"], 15, 0, 15.05, ["get", "min_height"]],
-              "fill-extrusion-opacity": 0.6
-            }
-          },
-          labelLayerId
-        );
-      });
     },
     createUserWeight: function() {
         var params = {
-          current_weight: this.userWeight,
+          weight: this.userWeight,
           date: this.userDate
         };
 
-        axios.post("/api/user_weights").then(response => {
+        axios.post("/api/user_weights", params).then(response => {
         this.userweights.push(response.data);
         this.userWeight = "";
         this.userDate = "";
@@ -415,8 +316,8 @@ export default {
     columnOne: function() {
       console.log("columnOne changed");
       const value = Number(this.columnOne) || null
-      if (this.chart.series[0].data[0]) {
-        this.chart.series[0].data[0].update(value) 
+      if (this.chart.series[0].data[5]) {
+        this.chart.series[0].data[5].update(value) 
       }
     }
   }

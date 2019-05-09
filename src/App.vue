@@ -67,8 +67,26 @@
                 <li><a href="/userhomepage" v-if="jwt">User Profile</a></li>  
               </ul> 
             </li> 
+            <!-- schedules -->
+            <li class="dropdown"> 
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" v-if="jwt"> 
+                Trainers' Schedule <span class="fa fa-angle-down"></span>  
+              </a>  
+              <ul class="dropdown-menu" role="menu">  
+                <li><a href="/schedules" v-if="jwt">Trainers' Schedule</a></li> 
+              </ul> 
+            </li>
+            <!-- map -->
+            <li class="dropdown"> 
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                Local Gyms <span class="fa fa-angle-down"></span>  
+              </a>  
+              <ul class="dropdown-menu" role="menu">  
+                <li><a href="/mappage">Local Gyms</a></li> 
+              </ul> 
+            </li>
 
-             <!-- Portfolio --> 
+             <!-- Exercise --> 
             <li class="dropdown"> 
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
                 Exercises <span class="fa fa-angle-down"></span>  
@@ -78,7 +96,7 @@
               </ul> 
             </li> 
 
-             <!-- Shop -->  
+             <!-- Routine -->  
             <li class="dropdown"> 
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" v-if="jwt">  
                 Routines <span class="fa fa-angle-down"></span> 
@@ -118,15 +136,12 @@
                   <p> 
                     Do not hesitate to contact us if you have any questions or feature requests:  
                   </p>  
+                
                   <p> 
-                    Lorem ipsum dolor sit amet,<br /> 
-                    Consectetur adipiscing elit 
+                    Phone: +1(708)-993-9923<br /> 
+                    Fax: +1 356 63 45 23 
                   </p>  
-                  <p> 
-                    Phone: +0 000 000 00 00<br /> 
-                    Fax: +0 000 000 00 00 
-                  </p>  
-                  <p>Email: <a href="#">support@example.com</a></p> 
+                  <p>Email: <a href="#">iFit@email.com</a></p> 
                 </div>  
               </div>  
             </div>  
@@ -134,32 +149,9 @@
              <!-- Recent Tweets --> 
             <div class="col-xs-12 col-sm-3">  
               <div class="footer__item">  
-                <div class="footer__title">Recent Tweets</div>  
+                <div class="footer__title"></div>  
                 <div class="footer__content"> 
-                  <div class="footer__tweet"> 
-                    <div class="footer-tweet__icon">  
-                      <i class="fa fa-twitter"></i> 
-                    </div>  
-                    <div class="footer-tweet__content"> 
-                      <p> 
-                        <a href="#">@wrapbootstrap</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc  
-                        nisi lorem, elementum sed feugiat.  
-                      </p>  
-                      <a href="#">1 hour ago</a>  
-                    </div>  
-                  </div>  
-                  <div class="footer__tweet"> 
-                    <div class="footer-tweet__icon">  
-                      <i class="fa fa-twitter"></i> 
-                    </div>  
-                    <div class="footer-tweet__content"> 
-                      <p> 
-                        <a href="#">@wrapbootstrap</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc  
-                        nisi lorem, elementum sed feugiat.  
-                      </p>  
-                      <a href="#">1 day ago</a> 
-                    </div>  
-                  </div>  
+                  <img src="https://images.pexels.com/photos/416717/pexels-photo-416717.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="..." />
                 </div>  
               </div>  
             </div>  
@@ -167,35 +159,9 @@
              <!-- Recent Posts -->  
             <div class="col-xs-12 col-sm-3">  
               <div class="footer__item">  
-                <div class="footer__title">Recent Posts</div> 
+                <div class="footer__title"></div> 
                 <div class="footer__content"> 
-                  <div class="footer__post">  
-                    <div class="footer-post__img">  
-                      <img src="img/general_1.jpg" alt="..." /> 
-                    </div>  
-                    <div class="footer-post__content">  
-                      <p><a href="#">Lorem ipsum dolor sit amet</a></p> 
-                      <time datetime="2015-01-01">2015/01/01</time> 
-                    </div>  
-                  </div>  
-                  <div class="footer__post">  
-                    <div class="footer-post__img">  
-                      <img src="img/general_2.jpg" alt="..." /> 
-                    </div>  
-                    <div class="footer-post__content">  
-                      <p><a href="#">Lorem ipsum dolor sit amet</a></p> 
-                      <time datetime="2015-01-01">2015/01/01</time> 
-                    </div>  
-                  </div>  
-                  <div class="footer__post">  
-                    <div class="footer-post__img">  
-                      <img src="img/general_3.jpg" alt="..." /> 
-                    </div>  
-                    <div class="footer-post__content">  
-                      <p><a href="#">Lorem ipsum dolor sit amet</a></p> 
-                      <time datetime="2015-01-01">2015/01/01</time> 
-                    </div>  
-                  </div>  
+                  <img src="https://images.pexels.com/photos/161557/sports-fitness-body-building-iron-161557.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-responsive" alt="..." />
                 </div>  
               </div>  
             </div>  
@@ -206,11 +172,11 @@
                 <div class="footer__title">Quick Links</div>  
                 <div class="footer__content"> 
                   <ul class="footer__links">  
-                    <li><a href="#">Donec commodo turpis eget orci</a></li> 
-                    <li><a href="#">Lorem ipsum dolor sit amet</a></li> 
-                    <li><a href="#">Aenean rhoncus vel nisi sed</a></li>  
-                    <li><a href="#">Aenean accumsan volutpat libero</a></li>  
-                    <li><a href="#">Vestibulum lacinia erat massa</a></li>  
+                    <li><a href="/exercises">Exercises</a></li> 
+                    <li><a href="/routines">Routines</a></li> 
+                    <li><a href="/userhomepage">User Home Page</a></li>  
+                    <li><a href="/schedules">Trainers Schedule</a></li>  
+                    <li><a href="/mappage">Local Gyms</a></li>  
                   </ul> 
                 </div>  
               </div>  

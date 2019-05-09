@@ -14,7 +14,7 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-sm-12 text-center">
-                        <h1 class="hero__h1">Welcome to iFit</h1>
+                        <h1 class="hero__h1">iFit</h1>
                         <div class="hero__action">
                           <a href="/userhomepage" class="btn btn-lg btn-primary">Your Home Page</a>
                         </div>
@@ -37,7 +37,7 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-sm-12 text-center">
-                        <h1 class="hero__h1">Welcome to iFit</h1>
+                        <h1 class="hero__h1">iFit</h1>
                         <div class="hero__action">
                           <a href="/exercises" class="btn btn-lg btn-primary">View Exercises</a>
                         </div>
@@ -53,16 +53,58 @@
             </div>
             <!-- / .item -->
 
-            <!-- 3d Slide -->
             <div class="item" id="hero-carousel__item_3">
               <div class="wrapper">
                 <div class="wrapper__inner">
                   <div class="container">
                     <div class="row">
                       <div class="col-sm-12 text-center">
-                        <h1 class="hero__h1">Welcome to iFit</h1>
+                        <h1 class="hero__h1">iFit</h1>
                         <div class="hero__action">
                           <a href="/routines" class="btn btn-lg btn-primary">View Your Routines</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- / .row -->
+                  </div>
+                  <!-- / .container -->
+                </div>
+                <!-- / .wrapper__inner -->
+              </div>
+              <!-- / .wrapper -->
+            </div>
+
+            <div class="item" id="hero-carousel__item_1">
+              <div class="wrapper">
+                <div class="wrapper__inner">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-12 text-center">
+                        <h1 class="hero__h1">iFit</h1>
+                        <div class="hero__action">
+                          <a href="/schedules" class="btn btn-lg btn-primary">Book an Appointment with a Trainer</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- / .row -->
+                  </div>
+                  <!-- / .container -->
+                </div>
+                <!-- / .wrapper__inner -->
+              </div>
+              <!-- / .wrapper -->
+            </div>
+
+            <!-- 3d Slide -->
+            <div class="item" id="hero-carousel__item_2">
+              <div class="wrapper">
+                <div class="wrapper__inner">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-12 text-center">
+                        <h1 class="hero__h1">iFit</h1>
+                        <div class="hero__action">
+                          <a href="/mappage" class="btn btn-lg btn-primary">Find a local gym</a>
                         </div>
                       </div>
                     </div>
@@ -108,10 +150,10 @@
         <div class="row">
           <div class="col-xs-12">
             <h1 class="section__title">
-              Getting fit =
+              These are the keys to a succesful workout
             </h1>
             <p class="section__intro">
-              Beatrix is a super flexible HTML5 template that would perfectly fit a project of any size and complexity
+              The workout starts before you get to the gym.
             </p>
             <div class="section__hr section__hr_center"></div>
           </div>
@@ -123,17 +165,17 @@
             <div class="features__item">
               <!-- Icon -->
               <div class="features__icon wow flipInY">
-                <i class="fa fa-check"></i>
-                <i class="fa fa-check"></i>
+                <i class="fa fa-list"></i>
+                <i class="fa fa-list"></i>
                 <!-- Required for animation -->
               </div>
               <!-- Title -->
               <h2 class="features__title">
-                Stay Focused
+                Stay Committed 
               </h2>
               <!-- Intro -->
               <p class="features__intro">
-                Looks equally great on your laptop, tablet, and phone. Try to resize your window to see what we mean.
+                You must keep a steady schedule. If you stray away from a consistent schdule you wont see progress. 
               </p>
             </div>
           </div>
@@ -142,17 +184,17 @@
             <div class="features__item">
               <!-- Icon -->
               <div class="features__icon wow flipInY" data-wow-delay=".2s">
-                <i class="fa fa-birthday-cake"></i>
-                <i class="fa fa-birthday-cake"></i>
+                <i class="fa fa-apple"></i>
+                <i class="fa fa-apple"></i>
                 <!-- Required for animation -->
               </div>
               <!-- Title -->
               <h2 class="features__title">
-                Built with LESS
+                Eat Proper 
               </h2>
               <!-- Intro -->
               <p class="features__intro">
-                Build on the source LESS code or quickly get started with precompiled CSS if you are a novice developer.
+                Even if you workout intensely everyday, you wont see the progress you are looking for if you dont eat properly.
               </p>
             </div>
           </div>
@@ -161,18 +203,17 @@
             <div class="features__item">
               <!-- Icon -->
               <div class="features__icon wow flipInY" data-wow-delay=".4s">
-                <i class="fa fa-envelope"></i>
-                <i class="fa fa-envelope"></i>
+                <i class="fa fa-bed"></i>
+                <i class="fa fa-bed"></i>
                 <!-- Required for animation -->
               </div>
               <!-- Title -->
               <h2 class="features__title">
-                PHP Contact Form
+                Sleep
               </h2>
               <!-- Intro -->
               <p class="features__intro">
-                Beatrix comes with a fully functional PHP contact form with built in spam protection powered by
-                reCaptcha.
+                You must get proper rest so thet your body has time to recover
               </p>
             </div>
           </div>
@@ -183,208 +224,8 @@
     </div>
     <!-- / .section -->
 
-    <!-- PORTFOLIO
-    ============================== -->
-    <div class="section section_portfolio section_alt">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <h1 class="section__title">
-              Buy a Product
-            </h1>
-            <p class="section__intro">
-              We sell products on our site!
-            </p>
-            <div class="section__hr section__hr_center"></div>
-          </div>
-        </div>
-        <!-- / .row -->
 
-        <div class="row">
-          <div class="col-xs-12">
-            <!-- Portfolio Carousel -->
-            <div id="portfolio__carousel" class="carousel slide" data-ride="carousel">
-              <!-- Controls -->
-              <div class="portfolio-carousel__controls">
-                <a href="#portfolio__carousel" role="button" data-slide="prev">
-                  <i class="fa fa-long-arrow-left"></i>
-                </a>
-                <a href="#portfolio__carousel" role="button" data-slide="next">
-                  <i class="fa fa-long-arrow-right"></i>
-                </a>
-              </div>
-
-              <!-- Wrapper for slides -->
-              <div class="carousel-inner" role="listbox">
-                <!-- Slide #1 -->
-                <div class="item active">
-                  <div class="row">
-                    <div class="col-xs-6 col-sm-6 col-md-3">
-                      <!-- Portfolio Item #1 -->
-                      <div class="portfolio__item">
-                        <!-- Image -->
-                        <div class="portfolio__img">
-                          <a href="#">
-                            <img src="img/general_1.jpg" alt="Portfolio Image" />
-                          </a>
-                        </div>
-                        <!-- Captions -->
-                        <div class="portfolio__caption">
-                          <h3 class="portfolio__title">Simple & Beautiful</h3>
-                          <div class="portfolio__intro">
-                            Morbi vulputate eget ipsum vel maximus. Morbi dictum blandit mattis.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-3">
-                      <!-- Portfolio Item #2 -->
-                      <div class="portfolio__item">
-                        <!-- Image -->
-                        <div class="portfolio__img">
-                          <a href="#">
-                            <img src="img/general_2.jpg" alt="Portfolio Image" />
-                          </a>
-                        </div>
-                        <!-- Captions -->
-                        <div class="portfolio__caption">
-                          <h3 class="portfolio__title">Simple & Beautiful</h3>
-                          <div class="portfolio__intro">
-                            Morbi vulputate eget ipsum vel maximus. Morbi dictum blandit mattis.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-3">
-                      <!-- Portfolio Item #3 -->
-                      <div class="portfolio__item">
-                        <!-- Image -->
-                        <div class="portfolio__img">
-                          <a href="#">
-                            <img src="img/general_3.jpg" alt="Portfolio Image" />
-                          </a>
-                        </div>
-                        <!-- Captions -->
-                        <div class="portfolio__caption">
-                          <h3 class="portfolio__title">Simple & Beautiful</h3>
-                          <div class="portfolio__intro">
-                            Morbi vulputate eget ipsum vel maximus. Morbi dictum blandit mattis.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-3">
-                      <!-- Portfolio Item #4 -->
-                      <div class="portfolio__item">
-                        <!-- Image -->
-                        <div class="portfolio__img">
-                          <a href="#">
-                            <img src="img/general_4.jpg" alt="Portfolio Image" />
-                          </a>
-                        </div>
-                        <!-- Captions -->
-                        <div class="portfolio__caption">
-                          <h3 class="portfolio__title">Simple & Beautiful</h3>
-                          <div class="portfolio__intro">
-                            Morbi vulputate eget ipsum vel maximus. Morbi dictum blandit mattis.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- / .row -->
-                </div>
-                <!-- / .item -->
-
-                <!-- Slide #2 -->
-                <div class="item">
-                  <div class="row">
-                    <div class="col-xs-6 col-sm-6 col-md-3">
-                      <!-- Portfolio Item #1 -->
-                      <div class="portfolio__item">
-                        <!-- Image -->
-                        <div class="portfolio__img">
-                          <a href="#">
-                            <img src="img/general_5.jpg" alt="Portfolio Image" />
-                          </a>
-                        </div>
-                        <!-- Captions -->
-                        <div class="portfolio__caption">
-                          <h3 class="portfolio__title">Simple & Beautiful</h3>
-                          <div class="portfolio__intro">
-                            Morbi vulputate eget ipsum vel maximus. Morbi dictum blandit mattis.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-3">
-                      <!-- Portfolio Item #2 -->
-                      <div class="portfolio__item">
-                        <!-- Image -->
-                        <div class="portfolio__img">
-                          <a href="#">
-                            <img src="img/general_6.jpg" alt="Portfolio Image" />
-                          </a>
-                        </div>
-                        <!-- Captions -->
-                        <div class="portfolio__caption">
-                          <h3 class="portfolio__title">Simple & Beautiful</h3>
-                          <div class="portfolio__intro">
-                            Morbi vulputate eget ipsum vel maximus. Morbi dictum blandit mattis.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-3">
-                      <!-- Portfolio Item #3 -->
-                      <div class="portfolio__item">
-                        <!-- Image -->
-                        <div class="portfolio__img">
-                          <a href="#">
-                            <img src="img/general_7.jpg" alt="Portfolio Image" />
-                          </a>
-                        </div>
-                        <!-- Captions -->
-                        <div class="portfolio__caption">
-                          <h3 class="portfolio__title">Simple & Beautiful</h3>
-                          <div class="portfolio__intro">
-                            Morbi vulputate eget ipsum vel maximus. Morbi dictum blandit mattis.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-3">
-                      <!-- Portfolio Item #4 -->
-                      <div class="portfolio__item">
-                        <!-- Image -->
-                        <div class="portfolio__img">
-                          <a href="#">
-                            <img src="img/general_8.jpg" alt="Portfolio Image" />
-                          </a>
-                        </div>
-                        <!-- Captions -->
-                        <div class="portfolio__caption">
-                          <h3 class="portfolio__title">Simple & Beautiful</h3>
-                          <div class="portfolio__intro">
-                            Morbi vulputate eget ipsum vel maximus. Morbi dictum blandit mattis.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- / .row -->
-                </div>
-                <!-- / .item -->
-              </div>
-              <!-- / .carousel-inner -->
-            </div>
-            <!-- / .carousel -->
-          </div>
-        </div>
-        <!-- / .row -->
-      </div>
-      <!-- / .container -->
-    </div>
+        
     <!-- / .section -->
 
     <!-- AUTHORS
@@ -397,7 +238,7 @@
               Book an Appointment with a local Trainer
             </h1>
             <p class="section__intro">
-              A team of hard-working enthusiastic people who helped this product come to life
+              A team of hard-working enthusiastic people
             </p>
             <div class="section__hr section__hr_center"></div>
           </div>
@@ -408,12 +249,12 @@
           <div class="col-xs-12 col-sm-4">
             <div class="authors__item">
               <div class="authors__img wow flipInY" data-wow-offset>
-                <img src="img/photo_1.jpg" class="img-responsive" alt="..." />
+                <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mh-trainer-2-1533576998.png?resize=480:*" class="img-responsive" alt="..." />
               </div>
               <div class="authors__content">
-                <div class="authors__title">John Doe, Designer</div>
+                <div class="authors__title">Carl, Personal Trainer</div>
                 <div class="authors__intro">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu lacus enim. Aliquam eu elit justo.
+                  Specializes in Cardio Workouts
                 </div>
                 <ul class="authors__contact">
                   <li class="facebook">
@@ -436,12 +277,12 @@
           <div class="col-xs-12 col-sm-4">
             <div class="authors__item">
               <div class="authors__img wow flipInY" data-wow-delay=".2s">
-                <img src="img/photo_2.jpg" class="img-responsive" alt="..." />
+                <img src="https://static1.squarespace.com/static/543e9a68e4b0bed3afbae5c7/t/5a2af55253450a215ad50bbd/1512764783292/778FEF84-FB67-4A6A-9909-770C3491F9CE.JPG" class="img-responsive" alt="..." />
               </div>
               <div class="authors__content">
-                <div class="authors__title">Judy Roe, Designer</div>
+                <div class="authors__title">Jacob, Personal Trainer</div>
                 <div class="authors__intro">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu lacus enim. Aliquam eu elit justo.
+                  Specializes in Workouts using Weights
                 </div>
                 <ul class="authors__contact">
                   <li class="facebook">
@@ -464,12 +305,12 @@
           <div class="col-xs-12 col-sm-4">
             <div class="authors__item">
               <div class="authors__img wow flipInY" data-wow-delay=".4s">
-                <img src="img/photo_3.jpg" class="img-responsive" alt="..." />
+                <img src="http://the-mac.com/wp-content/blogs.dir/13692/files/2017/08/Updated-Jane-Pi-1-3j5.jpg?w=316&h=237&a=t" class="img-responsive" alt="..." />
               </div>
               <div class="authors__content">
-                <div class="authors__title">Richard Doe, Developer</div>
+                <div class="authors__title">Janet, Personal Trainer</div>
                 <div class="authors__intro">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu lacus enim. Aliquam eu elit justo.
+                  Specialize in Core Workouts
                 </div>
                 <ul class="authors__contact">
                   <li class="facebook">
@@ -489,6 +330,8 @@
             </div>
           </div>
         </div>
+          <a href="/schedules" class="btn btn-lg btn-primary"><i></i>Book an Appointment</a>
+
         <!-- / .row -->
       </div>
       <!-- /.container -->
@@ -513,30 +356,27 @@
                 <div class="item active">
                   <div class="feedback__item">
                     <div class="feedback__content">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec turpis eget augue vulputate porta
-                      non et lectus. Mauris aliquet elementum ligula id commodo.
+                      “Strength does not come from the physical capacity. It comes from an indomitable will.” 
                     </div>
-                    <div class="feedback__author">- Richard Roe -</div>
+                    <div class="feedback__author">– Ghandi -</div>
                   </div>
                 </div>
                 <!-- Second item -->
                 <div class="item">
                   <div class="feedback__item">
                     <div class="feedback__content">
-                      Fusce a efficitur tortor. Vestibulum eget iaculis libero, sed rhoncus augue. Aenean sit amet
-                      pharetra quam. Nunc nec sem eget diam mattis pulvinar at eget metus.
+                      “Training gives us an outlet for suppressed energies created by stress and thus tones the spirit just as exercise conditions the body.” 
                     </div>
-                    <div class="feedback__author">- Judy Doe -</div>
+                    <div class="feedback__author">– Arnold Schwarzenegger -</div>
                   </div>
                 </div>
                 <!-- Third item -->
                 <div class="item">
                   <div class="feedback__item">
                     <div class="feedback__content">
-                      Curabitur sit amet tortor ac elit mattis fermentum vel eu sem. In vestibulum mattis turpis ac
-                      dictum. Pellentesque eros velit, pellentesque sed odio id.
+                      “Work hard in silence. Let success be your noise.”
                     </div>
-                    <div class="feedback__author">- John Doe -</div>
+                    <div class="feedback__author">- Frank Ocean -</div>
                   </div>
                 </div>
               </div>
