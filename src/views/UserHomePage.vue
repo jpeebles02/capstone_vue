@@ -132,7 +132,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                       <header class="container">
-                        <h1>BPI Calculator</h1>
+                        <h1>BMI Calculator</h1>
                       </header>
                       <main class="container">
 

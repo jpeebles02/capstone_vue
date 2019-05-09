@@ -150,7 +150,7 @@
         <div class="row">
           <div class="col-xs-12">
             <h1 class="section__title">
-              These are the keys to a succesful workout
+              Keys to a succesful workout
             </h1>
             <p class="section__intro">
               The workout starts before you get to the gym.
@@ -175,7 +175,7 @@
               </h2>
               <!-- Intro -->
               <p class="features__intro">
-                You must keep a steady schedule. If you stray away from a consistent schdule you wont see progress. 
+                Consistently go to the gym. 
               </p>
             </div>
           </div>
@@ -190,11 +190,11 @@
               </div>
               <!-- Title -->
               <h2 class="features__title">
-                Eat Proper 
+                Eat healthy 
               </h2>
               <!-- Intro -->
               <p class="features__intro">
-                Even if you workout intensely everyday, you wont see the progress you are looking for if you dont eat properly.
+                Even if you workout everyday, you wont see the progress you are putting garbage into your body.
               </p>
             </div>
           </div>
@@ -254,7 +254,7 @@
               <div class="authors__content">
                 <div class="authors__title">Carl, Personal Trainer</div>
                 <div class="authors__intro">
-                  Specializes in Cardio Workouts
+                  Chicago, IL
                 </div>
                 <ul class="authors__contact">
                   <li class="facebook">
@@ -282,7 +282,7 @@
               <div class="authors__content">
                 <div class="authors__title">Jacob, Personal Trainer</div>
                 <div class="authors__intro">
-                  Specializes in Workouts using Weights
+                 Chicago, IL
                 </div>
                 <ul class="authors__contact">
                   <li class="facebook">
@@ -310,7 +310,7 @@
               <div class="authors__content">
                 <div class="authors__title">Janet, Personal Trainer</div>
                 <div class="authors__intro">
-                  Specialize in Core Workouts
+                  Chicago, IL
                 </div>
                 <ul class="authors__contact">
                   <li class="facebook">

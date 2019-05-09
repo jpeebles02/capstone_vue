@@ -74,6 +74,9 @@
 
 <script>
 import axios from "axios";
+import Toasted from 'vue-toasted';
+ 
+Vue.use(Toasted)
 
 export default {
   data: function() {
@@ -97,7 +100,12 @@ export default {
         console.log("Successfully deleted routine", response.data);
         this.$router.push("/routines");
       });
-    }
+    let toast = Vue.toasted.show("You Deleted A Routine", { 
+         theme: "toasted-primary", 
+         position: "top-right", 
+         duration : 5000
+      });
+  }
   }
 };
 </script>
