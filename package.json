@@ -22,7 +22,7 @@
     "highcharts": "^7.1.1",
     "highcharts-vue": "^1.2.0",
     "mapbox-gl": "^0.54.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "pusher": "^2.2.0",
     "pusher-js": "^4.4.0",
     "vue": "^2.6.10",
